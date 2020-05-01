@@ -1,0 +1,216 @@
+@font-face {
+ font-family: "Cicle";
+ src: url('Cicle Fina.ttf');
+}
+
+@font-face {
+ font-family: "Dyno";
+ src: url('Dyno Regular.ttf');
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family:"Cicle", Verdana, Helvetica !important;
+  background-image: url(../img/noise.png);
+  background-color: #232323;
+}
+
+#container {
+    width: 1220px;
+    height: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    background-image: url(../img/bg.png);
+    background-color: #e4e3de;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#header {
+    background: url(https://www.canaldes2mersavelo.com/sites/canaldes2mers/files/styles/slide_1920x768/public/medias/images/ecluse-de-negra-canal-du-midi-velo.jpg?h=b8a2228b&itok=xvaG3d9p);
+    background-position-y: -332px;
+    /*background: rgb(234,92,13);
+    background: -moz-linear-gradient(top, rgb(234,92,13) 0%, rgb(185,69,3) 100%);
+    background: -webkit-linear-gradient(top, rgb(234,92,13) 0%,rgb(185,69,3) 100%);
+    background: linear-gradient(to bottom, rgb(234,92,13) 0%,rgb(185,69,3) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea5c0d', endColorstr='#b94503',GradientType=0 );*/
+    height: 220px;
+    width: 100%;
+}
+
+#logo {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 5;
+    font-weight: bold;
+    color: white;
+    font-size: 45px;
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px #474747;
+}
+
+#search {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  float: left;
+}
+
+#searchbar {
+  border: 1px solid black;
+  border-radius: 13px;
+  padding: 6px;
+  width: 165px;
+}
+
+#language {
+  position: relative;
+  float: right;
+  height: 40px;
+  top: 10px;
+  width: 65px;
+  padding-right: 10px;
+  padding-left: 104px;
+}
+
+#navbar {
+  font-family: "Dyno";
+  background: rgb(68,68,68); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgb(68,68,68) 0%, rgb(51,51,51) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgb(68,68,68) 0%,rgb(51,51,51) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgb(68,68,68) 0%,rgb(51,51,51) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+  height: 50px;
+  color: #fff;
+  line-height: 2.1;
+}
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#navbar ul li {
+    text-transform: uppercase;
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+}
+
+#navbar ul li:hover {
+  background: rgb(102,102,102); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgb(102,102,102) 0%, rgb(84,84,84) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgb(102,102,102) 0%,rgb(84,84,84) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgb(102,102,102) 0%,rgb(84,84,84) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#545454',GradientType=0 ); /* IE6-9 */
+}
+
+#navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 19px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.left {
+  float: left;
+  width: 890px;
+  margin-left: 5px;
+}
+
+.right {
+  float: right;
+  width: 320px;
+  margin-right: 5px;
+}
+
+.clear {
+  clear: both;
+  height: 0; overflow: hidden; /* Précaution pour IE 7 */
+}
+
+.box_right {
+    width: 300px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+    color: black;
+    border: 4px solid white;
+    box-shadow: 2px 2px 1px #adadad;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.box_left {
+    width: 870px;
+    margin-left: 5px;
+    background-color: white;
+    color: rgba(77,77,77,1);
+    border: 4px solid white;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: 2px 2px 1px #adadad;
+}
+
+.box_title {
+
+    width: 100%;
+    height: 30px;
+    background: rgb(183,91,42);
+    background: -moz-linear-gradient(top, rgb(183,91,42) 0%, rgb(185,69,3) 100%);
+    background: -webkit-linear-gradient(top, rgb(183,91,42) 0%,rgb(185,69,3) 100%);
+    background: linear-gradient(to bottom, rgb(183,91,42) 0%,rgb(185,69,3) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b75b2a', endColorstr='#b94503',GradientType=0 );
+    border-bottom: 3px solid rgb(159, 70, 22);
+    color: #fff;
+    font-size: 20px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    line-height: 30px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 5px;
+    font-weight: bold;
+
+}
+
+.box_left p{
+  font-size: 18px;
+    font-family: "Dyno";
+}
+
+.box_left h2{
+  font-family: "Dyno";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p{
+  padding-left: 5px;
+  margin-top: 5px;
+}
+
+footer {
+    margin-top: 15px;
+    border-top: 2px solid white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-image: url(../img/noise.png);
+    background-color: #333333;
+    width: 100%;
+    height: 80px;
+}
+
+footer img {
+    height: 60px;
+    padding: 10px 10px;
+}

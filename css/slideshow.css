@@ -1,0 +1,65 @@
+#slideshow {
+    overflow: hidden;
+    height: 245px;
+    width: 1220px;
+    margin: 0 auto;
+    border-bottom: 2px solid white;
+}
+
+.slide-wrapper {
+  width: 4880px;
+  -webkit-animation: slide 18s ease infinite;
+}
+
+.slide {
+  float: left;
+  height: 245px;
+  width: 1220px;
+}
+
+.slide:nth-child(1) {
+  background: url('https://www.canaldes2mersavelo.com/sites/canaldes2mers/files/styles/slide_1920x768/public/medias/images/canal-du-midi-ecluse-ronde.jpg?h=8b63e641&itok=-XmJJiek');
+  background-position-y: -200px;
+}
+
+.slide:nth-child(2) {
+  background: url('https://back-thomascook.orchestra-platform.com/admin/TS/fckUserFiles/Content_Image/TC/DESTINATIONS_TC/Canal_du_midi/Canal_midi_1400_1.jpg');
+  background-position-y: -200px;
+}
+
+.slide:nth-child(3) {
+  background: url('https://www.locaboat.com/wp-content/uploads/pictures/boating-holidays/regions/midi/port-de-bram-de.jpg');
+  background-position-y: -250px;
+}
+
+.slide:nth-child(4) {
+  background: url('https://www.campingcayola.fr/wp-content/uploads/2018/09/camping-canal-du-midi-vias.jpg');
+  background-position-y: -150px;
+}
+
+.slide-number {
+    line-height: 1.5;
+    text-align: left;
+    position: relative;
+    top: 10px;
+    margin-left: 30px;
+    display: inline;
+    background-color: #353535cf;
+    font-size: 35px;
+    overflow: hidden;
+    color: white;
+    padding: 5px;
+    width: 264px;
+    height: 55px;
+    border-radius: 5px;
+}
+
+@-webkit-keyframes slide {
+  20% {margin-left: 0px;}
+  30% {margin-left: -1220px;}
+  50% {margin-left: -1220px;}
+  60% {margin-left: -2440px;}
+  70% {margin-left: -2440px;}
+  80% {margin-left: -3660px;}
+  90% {margin-left: -3660px;}
+}
