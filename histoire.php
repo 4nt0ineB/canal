@@ -23,6 +23,9 @@
         <div class="box_title">Histoire</div>
         <div>
           <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PPw-xPYOxIyyWKbhg2-iR-suQlJ2D1rqmD95vQWxC-4&font=Default&lang=fr&initial_zoom=1&width=100%&height=100%' width='100%' height='900px' frameborder='0'></iframe>
+          <!-- TRADUCTION 
+          <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1yKctDhDbvetccU06hBtzabNwxzthHLNnHuIYcLbuXb4&font=Default&lang=en&initial_zoom=5&width=100%&height=100%' width='100%' height='900px' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
+          -->
         </div>
 
       </div>
