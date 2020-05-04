@@ -18,40 +18,42 @@
 
     <div class="left">
       <div class="box_left">
+        <?php
+        if ($_SESSION["lang"] == "en") {
+        ?>
+          <div class="box_title">History</div>
+          <div>
 
-        <div class="box_title">Histoire</div>
-        <div>
-          <?php
-          if ($_SESSION["lang"] == "en") {
-          ?>
             <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1yKctDhDbvetccU06hBtzabNwxzthHLNnHuIYcLbuXb4&font=Default&lang=en&initial_zoom=5&width=100%&height=100%' width='100%' height='900px' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
           <?php
-          } elseif ($_SESSION["lang"] == "fr") {
+        } elseif ($_SESSION["lang"] == "fr") {
           ?>
-            <iframe src=https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PPw-xPYOxIyyWKbhg2-iR-suQlJ2D1rqmD95vQWxC-4&font=Default&lang=fr&initial_zoom=1&width=100%&height=100%' width='100%' height='900px' frameborder='0'></iframe>
-          <?php
+            <div class="box_title">Histoire</div>
+            <div>
+              <iframe src=https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1PPw-xPYOxIyyWKbhg2-iR-suQlJ2D1rqmD95vQWxC-4&font=Default&lang=fr&initial_zoom=1&width=100%&height=100%' width='100%' height='900px' frameborder='0'></iframe>
+            <?php
           }
-          ?>
-        </div>
+            ?>
+            </div>
 
+          </div>
       </div>
-    </div>
-    <div class="right">
-      <div class="box_right">
+      <div class="right">
+        <div class="box_right">
 
 
-        <div class="box_title" style="
+          <div class="box_title" style="
     background: rgb(66,66,66); /* Old browsers */
     background: -moz-linear-gradient(top, rgb(66,66,66) 0%, rgb(51,51,51) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     border-bottom: 3px solid rgb(38, 38, 38);">Catégorie</div>
-        test
+          test
+        </div>
       </div>
-    </div>
 
 
-    <div class="clear"></div>
+      <div class="clear"></div>
 
 
-    <?php include("includes/footer.php"); ?>
+      <?php include("includes/footer.php"); ?>
