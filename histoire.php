@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/language.css">
   <link rel="stylesheet" href="css/slideshow.css">
-  <!-- link rel="stylesheet" href="./includes/timeline/timeline.css"-->
 
 </head>
 
