@@ -24,10 +24,10 @@
  .language-dropdown .lang-fr .flag {
 	 background-image: url("https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/48x48/shadow/flag_france.png");
 }
- .language-dropdown .lang-uk {
+ .language-dropdown .lang-en {
 	 border-left: 4px solid #2B85DA;
 }
- .language-dropdown .lang-uk .flag {
+ .language-dropdown .lang-en .flag {
 	 background-image: url("https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/48x48/shadow/flag_united_kingdom.png");
 }
  .language-dropdown .lang-es {
