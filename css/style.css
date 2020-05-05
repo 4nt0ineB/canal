@@ -185,7 +185,8 @@ body{
 
 .box_left p{
   font-size: 18px;
-    font-family: "Dyno";
+  text-align: justify;
+  font-family: "Dyno";
 }
 
 .box_left h2{
