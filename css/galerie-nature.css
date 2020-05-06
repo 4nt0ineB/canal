@@ -35,7 +35,7 @@
 }
 
 .img-box:hover {
-    height: 230px;
+    height: 150px;
 }
 
 
@@ -48,8 +48,8 @@
 }
 
 .transparent-box {
-    height: 250px;
-    width: 350px;
+    height: 150px;
+    width: 200px;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
