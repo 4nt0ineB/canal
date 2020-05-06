@@ -67,6 +67,7 @@
 
 
     <div class="left">
+      <br>
       <div class="box_left">
         <div class="box_title"><?php echo $txt[11][$_SESSION["lang"]]; ?></div>
         <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false#9/43.2382/2.5076"></iframe>
@@ -74,6 +75,7 @@
       </div>
     </div>
     <div class="right">
+      <br>
       <div class="box_right">
         <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
         <center>

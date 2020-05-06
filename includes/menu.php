@@ -21,8 +21,5 @@ $nrow = ($_SESSION["lang"] == "fr") ? 0 : 1; // c'est une table chelou du coup f
 
     </li> |
     <li><a href="nature.php"><?php echo $txtNav[$nrow]["t7"]; ?></a></li>
-    <li>
-      <FONT color="#33a0ff"><?php echo $_SESSION["lang"]; ?></FONT>
-    </li>
   </ul>
 </div>

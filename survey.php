@@ -32,12 +32,7 @@
 
         <div class="right">
             <div class="box_right">
-                <div class="box_title" style="
-    background: rgb(66,66,66); /* Old browsers */
-    background: -moz-linear-gradient(top, rgb(66,66,66) 0%, rgb(51,51,51) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    border-bottom: 3px solid rgb(38, 38, 38);"><?php echo $txt[6][$_SESSION["lang"]]; ?></div>
+                <div class="box_title black"><?php echo $txt[6][$_SESSION["lang"]]; ?></div>
                 <?php
                 $json = file_get_contents('https://www.prevision-meteo.ch/services/json/toulouse');
                 $json = json_decode($json);
