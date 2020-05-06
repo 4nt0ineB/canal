@@ -26,20 +26,20 @@
         <h2><span style="font-weight: 200;"><span style="font-weight: 400;"></span><?php echo $txt[1][$_SESSION["lang"]]; ?></span></h2>
         <hr>
 
-        <?php if (!isset($_GET["search"])){
-          echo "<p>"; echo $txt[2][$_SESSION["lang"]]; echo "</p>";
+        <?php if (!isset($_GET["search"])) {
+          echo "<p>";
+          echo $txt[2][$_SESSION["lang"]];
+          echo "</p>";
         } else {
 
-          if (empty($_GET["search"])){
-            echo "<p>"; echo $txt[3][$_SESSION["lang"]]; echo "</p>";
+          if (empty($_GET["search"])) {
+            echo "<p>";
+            echo $txt[3][$_SESSION["lang"]];
+            echo "</p>";
           } else {
 
             echo "<p>gg wp</p>";
-
           }
-
-
-
         } ?>
 
 
@@ -55,7 +55,7 @@
     background: -webkit-linear-gradient(top, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgb(66,66,66) 0%,rgb(51,51,51) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     border-bottom: 3px solid rgb(38, 38, 38);">categ</div>
-        
+
         <center>
           test
         </center>

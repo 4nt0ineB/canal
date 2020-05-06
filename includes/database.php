@@ -1,10 +1,10 @@
 <?php
 // connexion à la base abastos de sqletud
 
-define('HOST', 'sql7.freemysqlhosting.net');
-define('DB_NAME', 'sql7337700');
-define('USER', 'sql7337700');
-define('PASS', '6WznURBcPi');
+define('HOST', '51.210.15.73');
+define('DB_NAME', 'canal');
+define('USER', 'debian2');
+define('PASS', 'zibaldone52');
 
 try {
     $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
