@@ -100,6 +100,7 @@ body {
   height: 50px;
   color: #fff;
   line-height: 2.1;
+  position: relative;
 }
 
 #navbar ul {
@@ -137,6 +138,30 @@ body {
   -ms-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+.dropdown-content {
+    display: none;
+    margin: 5px 0px 0px -5px;
+    position: absolute;
+    background-color: #3b3b3b;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #272727;}
+
+.rubrique-drop:hover .dropdown-content {
+  display: block;
 }
 
 .left {
