@@ -45,4 +45,5 @@ if (isset($_POST["recup_language"])) {
 
   </div>
   <div id="logo"><a href="index.php"><img src="img/logo.png" style="width: 30%;"></a></div>
+  <div id="slug">Patrimoine Mondial de l'Humanité</div>
 </div>
