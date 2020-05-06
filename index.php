@@ -45,24 +45,6 @@
         <h2><span style="font-weight: 200;"><span style="font-weight: 400;"></span><?php echo $txt[5][$_SESSION["lang"]]; ?></span></h2>
       </div>
     </div>
-
-    <div class="left">
-      <div class="box_left">
-        <div class="box_title"><?php echo 'Carte du canal' ?></div>
-        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false#9/43.2382/2.5076"></iframe>
-        <!-- <a href="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223"></a>  LIEN POUR OUVRIR LA MAP JE SAVAIS PAS OU LE METTRE ALORS AU CAS OU -->
-      </div>
-    </div>
-
-    <div class="left">
-      <div class="box_left">
-        <div class="box_title"><?php echo 'Aidez nous à améliorer votre expérience' ?></div>
-        <a href="survey.php" style="text-decoration: none;">
-          <div class="button-survey">Formulaire</div>
-        </a>
-      </div>
-    </div>
-
     <div class="right">
       <div class="box_right">
         <div class="box_title" style="
@@ -87,6 +69,25 @@
         </center>
       </div>
     </div>
+
+    <div class="left">
+      <div class="box_left">
+        <div class="box_title"><?php echo 'Carte du canal' ?></div>
+        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false#9/43.2382/2.5076"></iframe>
+        <!-- <a href="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223"></a>  LIEN POUR OUVRIR LA MAP JE SAVAIS PAS OU LE METTRE ALORS AU CAS OU -->
+      </div>
+    </div>
+
+    <div class="left">
+      <div class="box_left">
+        <div class="box_title"><?php echo 'Aidez nous à améliorer votre expérience' ?></div>
+        <a href="survey.php" style="text-decoration: none;">
+          <div class="button-survey">Formulaire</div>
+        </a>
+      </div>
+    </div>
+
+
 
 
     <div class="clear"></div>
