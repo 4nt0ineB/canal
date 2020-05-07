@@ -80,9 +80,7 @@
         <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
         <center>
           <p><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
-          <a href="survey.php" style="text-decoration: none;">
-            <div class="button-survey"><?php echo $txt[10][$_SESSION["lang"]]; ?></div>
-          </a>
+           <div class="button-survey"><a href="survey.php" style="text-decoration: none;color:inherit;"><?php echo $txt[10][$_SESSION["lang"]]; ?></a></div>
         </center>
       </div>
     </div>
