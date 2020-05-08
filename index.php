@@ -70,8 +70,7 @@
       <br>
       <div class="box_left">
         <div class="box_title"><?php echo $txt[11][$_SESSION["lang"]]; ?></div>
-        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/free-canal-du-midi-france-cycling-map_455373?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=false&embedControl=false&datalayersControl=true&onLoadPanel=none&captionBar=false&fullscreenControl=true&locateControl=false&measureControl=false&editinosmControl=false#9/43.3881/2.5488"></iframe>
-
+        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/free-canal-du-midi-france-cycling-map_455373?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=null&tilelayersControl=false&embedControl=false&datalayersControl=null&onLoadPanel=none&captionBar=false&fullscreenControl=true&locateControl=false&measureControl=false&editinosmControl=false#9/43.4380/2.2192"></iframe>
       </div>
     </div>
     <div class="right">
