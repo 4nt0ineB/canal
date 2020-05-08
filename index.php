@@ -70,8 +70,8 @@
       <br>
       <div class="box_left">
         <div class="box_title"><?php echo $txt[11][$_SESSION["lang"]]; ?></div>
-        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false#9/43.2382/2.5076"></iframe>
-        <!-- <a href="//umap.openstreetmap.fr/fr/map/carte-sans-nom_454223"></a>  LIEN POUR OUVRIR LA MAP JE SAVAIS PAS OU LE METTRE ALORS AU CAS OU -->
+        <iframe width="100%" height="400px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/fr/map/free-canal-du-midi-france-cycling-map_455373?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=false&embedControl=false&datalayersControl=true&onLoadPanel=none&captionBar=false&fullscreenControl=true&locateControl=false&measureControl=false&editinosmControl=false#9/43.3881/2.5488"></iframe>
+
       </div>
     </div>
     <div class="right">
@@ -80,10 +80,11 @@
         <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
         <center>
           <p><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
-           <div class="button-survey"><a href="survey.php" style="text-decoration: none;color:inherit;"><?php echo $txt[10][$_SESSION["lang"]]; ?></a></div>
+          <div class="button-survey"><a href="survey.php" style="text-decoration: none;color:inherit;"><?php echo $txt[10][$_SESSION["lang"]]; ?></a></div>
         </center>
       </div>
     </div>
+
 
     <div class="clear"></div>
 
