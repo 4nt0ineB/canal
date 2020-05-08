@@ -42,8 +42,26 @@
         <div class="box_right">
 
 
-          <div class="box_title black">Catégorie</div>
-          test
+          <div class="box_title black">
+            <?php
+            if ($_SESSION["lang"] == "en") {
+              echo "You would like to know more ?";
+            } elseif ($_SESSION["lang"] == "fr") {
+              echo "Vous voulez en savoir plus ?";
+            }
+            ?>
+          </div>
+          <center><br>
+         <?php
+            if ($_SESSION["lang"] == "en") {
+              echo "<a href=\"https://fr.wikipedia.org/wiki/Canal_du_Midi\" target=\"_blank\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/220px-Wikipedia-logo-v2.svg.png\" style=\"width:90px;\"></a><br>
+              More details on the Wikipedia page on the page labeled <b>\"quality item\"</b> !";
+            } elseif ($_SESSION["lang"] == "fr") {
+              echo "<a href=\"https://fr.wikipedia.org/wiki/Canal_du_Midi\" target=\"_blank\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/220px-Wikipedia-logo-v2.svg.png\" style=\"width:90px;\"></a><br>
+              Plus de détails sur la page Wikipédia classée <b>\"article de qualité\"</b> !";
+            }
+            ?>
+          </center>
         </div>
       </div>
 

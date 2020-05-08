@@ -45,5 +45,13 @@ if (isset($_POST["recup_language"])) {
 
   </div>
   <div id="logo"><a href="index.php"><img src="img/logo.png" style="width: 30%;"></a></div>
-  <div id="slug">Patrimoine Mondial de l'Humanité</div>
+
+  <?php
+     if ($_SESSION["lang"] == "en") {
+        echo "<div id=\"slug\">World Heritage of Humanity</div>";
+    } elseif ($_SESSION["lang"] == "fr") {
+        echo "<div id=\"slug\">Patrimoine Mondial de l'Humanité</div>";
+    }
+  ?>
+
 </div>
