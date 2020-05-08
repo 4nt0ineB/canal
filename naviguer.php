@@ -484,7 +484,18 @@
                 <div class="box_title black">Calculer un itinéraire fluvial </div>
 
                 <center>
-                    <div class="button-survey"><a href="http://www.vnf.fr/calculitinerairefluvial/app/Main.html" style="text-decoration: none;color:inherit;" target="_blank">Y aller</a></div>
+                    <div class="button-survey" style="width:150px;"><a href="http://www.vnf.fr/calculitinerairefluvial/app/Main.html" style="text-decoration: none;color:inherit;" target="_blank">Y aller</a></div>
+
+                </center>
+            </div>
+        </div>
+        <div class="right">
+            <div class="box_right">
+                <div class="box_title black">Source</div>
+
+                <center>
+                    <p>Toutes ses informations sont issues de ce document </p>
+                    <div class="button-survey" style="width:150px;"><a href="http://plaisancefluviale.fr/document/vnf/guide_canal_2mers.pdf" style="text-decoration: none;color:inherit;" target="_blank">Voir le pdf</a></div>
 
                 </center>
             </div>
