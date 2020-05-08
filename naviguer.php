@@ -46,7 +46,7 @@
                                 <a href="#stationnementnui"><?php echo $txt[15][$_SESSION["lang"]]; ?></a>
                                 <a href="#stationnementlong"><?php echo $txt[16][$_SESSION["lang"]]; ?></a>
                             </div>
-                    </li>
+                    </li>&nbsp;|&nbsp;
 
                     <li class="rubrique-drop"><a href="#conseilnavigation"><?php echo $txt[17][$_SESSION["lang"]]; ?></a>
                             <div class="dropdown-content">
@@ -55,7 +55,7 @@
                                 <a href="#cohabitation"><?php echo $txt[20][$_SESSION["lang"]]; ?></a>
                             </div>
 
-                    </li>
+                    </li>&nbsp;|&nbsp;
 
                     <li class="rubrique-drop"><a href="passageecluse"><?php echo $txt[21][$_SESSION["lang"]]; ?></a>
                             <div class="dropdown-content">
@@ -63,9 +63,9 @@
                                 <a href="#eclusesautomatisees"><?php echo $txt[23][$_SESSION["lang"]]; ?></a>
                             </div>
 
-                    </li>
+                    </li>&nbsp;|&nbsp;
 
-                    <li><a href="#permisetpeages"><?php echo $txt[24][$_SESSION["lang"]]; ?></a></li>
+                    <li><a href="#permisetpeages"><?php echo $txt[24][$_SESSION["lang"]]; ?></a></li>&nbsp;|&nbsp;
                     <li><a href="#renseignementspratiques"><?php echo $txt[25][$_SESSION["lang"]]; ?></a></li>
 				</ul>
 			</div>
