@@ -6,7 +6,14 @@
 <img src="img/forumunesco.png" alt="Logo FORUM UNESCO">
 
 <div class="legals">
-	<a href="#">Mentions légales</a>
+	<?php
+         if ($_SESSION["lang"] == "en") {
+            echo "<a href=\"#\">Legal notices</a>";
+        } elseif ($_SESSION["lang"] == "fr") {
+            echo "<a href=\"#\">Mentions légales</a>";
+        }
+      ?>
+	
 </div>
 
 

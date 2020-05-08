@@ -23,7 +23,18 @@ if (isset($_POST["recup_language"])) {
 <form method="POST" id="choix2"> <input type="hidden" name="recup_language" value="<?php echo $_SESSION["otherlanguages"][1]; ?>" /> </form>
 
 <div id="header">
-  <div id="search"><input type="text" id="searchbar" name="search" minlength="4" size="10" placeholder="Recherche..."></div>
+  <div id="search">
+    <form action="recherche.php" method="POST">
+      <?php
+         if ($_SESSION["lang"] == "en") {
+            echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Search...\">";
+        } elseif ($_SESSION["lang"] == "fr") {
+            echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Recherche...\">";
+        }
+      ?>
+      <input type="image" src="./img/loupe.png" style="position: relative;top: 3px;left: -30px;">
+    </form>
+  </div>
   <div id="language">
 
     <div id="lang_selector" class="language-dropdown">

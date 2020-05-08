@@ -23,22 +23,28 @@
     <div class="left">
       <div class="box_left">
         <div class="box_title"><?php echo $txt[0][$_SESSION["lang"]]; ?></div>
-        <h2><span style="font-weight: 200;"><span style="font-weight: 400;"></span><?php echo $txt[1][$_SESSION["lang"]]; ?></span></h2>
-        <hr>
+        <h2><span style="font-weight: 200;"><span style="font-weight: 400;"></h2>
 
-        <?php if (!isset($_GET["search"])) {
+        <?php 
+
+        if (!isset($_POST["search"])) {
+
           echo "<p>";
           echo $txt[2][$_SESSION["lang"]];
           echo "</p>";
+
         } else {
 
-          if (empty($_GET["search"])) {
+          $search = $_POST["search"];
+
+          if (empty($search)) {
             echo "<p>";
             echo $txt[3][$_SESSION["lang"]];
             echo "</p>";
           } else {
-
-            echo "<p>gg wp</p>";
+            echo "<p>Articles that matches with : ";
+            echo htmlspecialchars($search);
+            echo "</p><hr>";
           }
         } ?>
 
