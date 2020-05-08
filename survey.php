@@ -16,7 +16,7 @@
         include('includes/header.php');
         include('includes/menu.php');
         //ON RECUP LA TRAD DE LA PAGE
-        $contenuIndex = $db->query("SELECT * FROM p_accueil");
+        $contenuIndex = $db->query("SELECT * FROM p_survey");
         $txt = $contenuIndex->fetchAll();
         ?>
 
@@ -24,7 +24,7 @@
 
         <div class="left">
             <div class="box_left">
-                <div class="box_title"><?php echo 'Aidez nous à améliorer votre expérience' ?></div>
+                <div class="box_title"><?php echo $txt[0][$_SESSION["lang"]]; ?></div>
 
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdO9fvuSN63zamZaOe33NH2v8uBUJ9KV5wh6cXjWUbyYW1pg/viewform?embedded=true" width="100%" height="1050" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
             </div>
@@ -32,13 +32,13 @@
 
         <div class="right">
             <div class="box_right">
-                <div class="box_title black"><?php echo $txt[6][$_SESSION["lang"]]; ?></div>
+                <div class="box_title black"><?php echo $txt[1][$_SESSION["lang"]]; ?></div>
                 <?php
                 $json = file_get_contents('https://www.prevision-meteo.ch/services/json/toulouse');
                 $json = json_decode($json);
                 ?>
                 <center>
-                    <h3><?php echo $txt[7][$_SESSION["lang"]]; ?><u><?php echo $json->city_info->name; ?></u></h3>
+                    <h3><?php echo $txt[2][$_SESSION["lang"]]; ?><u><?php echo $json->city_info->name; ?></u></h3>
                     <ul style="list-style: none;margin-block-start: 0;padding-inline-start: 0;">
                         <li><span><?php echo $json->fcst_day_0->day_short; ?> (<FONT color="blue"><?php echo $json->fcst_day_0->tmin; ?>°C</FONT> / <FONT color="red"><?php echo $json->fcst_day_0->tmax; ?>°C</FONT>)</span><br><small style="vertical-align: 10px;"><?php echo $json->fcst_day_0->condition; ?> </small><img src="<?php echo $json->fcst_day_0->icon; ?>" width="32" height="32" /></li>
                         <hr>
