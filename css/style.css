@@ -110,6 +110,7 @@ body {
 }
 
 #navbar ul li {
+  transition: background 0.5s;
   text-transform: uppercase;
   list-style: none;
   display: inline-block;
@@ -117,6 +118,7 @@ body {
 }
 
 #navbar ul li:hover {
+	transition: background 0s;
   background: rgb(102, 102, 102);
   /* Old browsers */
   background: -moz-linear-gradient(top, rgb(102, 102, 102) 0%, rgb(84, 84, 84) 100%);
@@ -133,11 +135,6 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 19px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 .dropdown-content {
@@ -303,3 +300,28 @@ footer .legals a {
   color: white;
 }
 
+.menu_wrapper {
+    height: auto;
+    background-color: #585858;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom: 3px solid rgb(70, 70, 70);
+}
+
+.menu_wrapper .menu_page {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.menu_wrapper .menu_page li {
+  display: inline-block;
+  padding: 5px;
+}
+
+.menu_wrapper .menu_page li a {
+  font-family: "Dyno";
+  color: #fff;
+  text-decoration: none;
+}

@@ -32,10 +32,11 @@
         <div class="left">
             <div class="box_left">
                 <div class="box_title"><?php echo $txt[7][$_SESSION["lang"]]; ?></div>
-                <ul>
-                    <div class="button-survey" style="width:446px;">
-                        <li class="rubrique-drop"><a href="#DISPOSITIONS-REGLEMENTAIRES"><?php echo $txt[8][$_SESSION["lang"]]; ?></a>
-                            <div class="dropdown-content">
+
+            <div class="menu_wrapper">
+				<ul class="menu_page">
+					<li class="rubrique-drop"><a href="#DISPOSITIONS-REGLEMENTAIRES"><?php echo $txt[8][$_SESSION["lang"]]; ?></a>
+						<div class="dropdown-content">
                                 <a href="#reglesroute"><?php echo $txt[9][$_SESSION["lang"]]; ?></a>
                                 <a href="#reglesnavigation"><?php echo $txt[10][$_SESSION["lang"]]; ?></a>
                                 <a href="#vitessenavigation"><?php echo $txt[11][$_SESSION["lang"]]; ?></a>
@@ -45,42 +46,36 @@
                                 <a href="#stationnementnui"><?php echo $txt[15][$_SESSION["lang"]]; ?></a>
                                 <a href="#stationnementlong"><?php echo $txt[16][$_SESSION["lang"]]; ?></a>
                             </div>
+                    </li>
 
-                        </li>
-                    </div>
-                    <div class="button-survey" style="width:446px;">
-                        <li class="rubrique-drop"><a href="#conseilnavigation"><?php echo $txt[17][$_SESSION["lang"]]; ?></a>
+                    <li class="rubrique-drop"><a href="#conseilnavigation"><?php echo $txt[17][$_SESSION["lang"]]; ?></a>
                             <div class="dropdown-content">
                                 <a href="#audepart"><?php echo $txt[18][$_SESSION["lang"]]; ?></a>
                                 <a href="#encoursderoute"><?php echo $txt[19][$_SESSION["lang"]]; ?></a>
                                 <a href="#cohabitation"><?php echo $txt[20][$_SESSION["lang"]]; ?></a>
                             </div>
 
-                        </li>
-                    </div>
-                    <div class="button-survey" style="width:446px;">
-                        <li class="rubrique-drop"><a href="passageecluse"><?php echo $txt[21][$_SESSION["lang"]]; ?></a>
+                    </li>
+
+                    <li class="rubrique-drop"><a href="passageecluse"><?php echo $txt[21][$_SESSION["lang"]]; ?></a>
                             <div class="dropdown-content">
                                 <a href="#prioritepassage"><?php echo $txt[22][$_SESSION["lang"]]; ?></a>
                                 <a href="#eclusesautomatisees"><?php echo $txt[23][$_SESSION["lang"]]; ?></a>
                             </div>
 
-                        </li>
-                    </div>
-                    <div class="button-survey" style="width:550px;">
-                        <li class="rubrique-drop"><a href="#permisetpeages"><?php echo $txt[24][$_SESSION["lang"]]; ?></a>
-                        </li>
-                    </div>
-                    <div class="button-survey" style="width:550px;">
-                        <li class="rubrique-drop"><a href="#renseignementspratiques"><?php echo $txt[25][$_SESSION["lang"]]; ?></a>
-                        </li>
-                    </div>
-                </ul>
-                <div></div>
+                    </li>
+
+                    <li><a href="#permisetpeages"><?php echo $txt[24][$_SESSION["lang"]]; ?></a></li>
+                    <li><a href="#renseignementspratiques"><?php echo $txt[25][$_SESSION["lang"]]; ?></a></li>
+				</ul>
+			</div>
+
                 <?php echo $txt[0][$_SESSION["lang"]]; ?>
 
             </div>
         </div>
+    </div>
+
 
         <div class="right">
             <div class="box_right">
