@@ -495,7 +495,7 @@
 
                 <center>
                     <p>Toutes ses informations sont issues de ce document </p>
-                    <div class="button-survey" style="width:150px;"><a href="http://plaisancefluviale.fr/document/vnf/guide_canal_2mers.pdf" style="text-decoration: none;color:inherit;" target="_blank">Voir le pdf</a></div>
+                    <div class="button-survey" style="width:150px;"><a href="http://plaisancefluviale.fr/document/vnf/guide_canal_2mers.pdf" style="text-decoration: none;color:inherit;" target="_blank">Guide du Plaisancier</a></div>
 
                 </center>
             </div>
