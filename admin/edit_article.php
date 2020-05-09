@@ -23,14 +23,33 @@
 	    header("location:login.php"); // redirection
 	  } 
 
-    $date = date('Y-m-d H:i:s');
+	if (!isset($_GET["id"]) || empty($_GET["id"])){
+		echo "<p>Merci de sélectionner un article</p>";
+		die;
+	} else if (!is_numeric($_GET["id"])) {
+		echo "<p>Merci de sélectionner un numéro d'article correct</p>";
+		die;
+	}
+
+	$id = $_GET["id"];
+	$article = $db->query("SELECT * FROM articles WHERE id=$id");
+
+	if ($article->rowCount() == 0){
+		echo "<p>L'article sélectionné n'existe pas</p>";
+		die;
+	}
+
+	$article_results = $article->fetch();
+
 	?>
 
+	<div class="left">
+      <div class="box_left">
+        <div class="box_title">Éditer l'article : <?php echo $article_results["titre"]; ?></div>
 
   <?php
   if(isset($_REQUEST['send'])) // si le formulaire est envoyé avec le bouton send
   {
-    $auteur = strip_tags($row["login"]); // on stock les variables reçues
     $titre = strip_tags($_REQUEST["title"]);
     $contenu = $_REQUEST["content"];
      try
@@ -45,13 +64,10 @@
 
       else if(!isset($errorRequestMessage)) // si aucune erreur :
       {
-       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW());");   // on créer la demande dans la BDD
-
-       if($insert_request->execute(array(':titre'=>$titre, ':auteur'=>$auteur, ':contenu'=>$contenu))){
-
-        $goodRequestMessage="L'article a été créé avec succès. Redirection..."; // message de succès
-        header("refresh:1; index.php");
-       }
+       $db->query("UPDATE articles SET titre=\"$titre\", contenu=\"$contenu\" WHERE id=$id;");   // on créer la demande dans la BDD
+       $goodRequestMessage="L'article a été édité avec succès. Redirection..."; // message de succès
+       header("refresh:1; index.php");
+       
       }
      }
      catch(PDOException $e)
@@ -61,13 +77,7 @@
     }
    ?>
 
-
-<div class="left">
-      <div class="box_left">
-        <div class="box_title">Créer un nouvel article</div>
-        
-
-        <?php
+   <?php
      if(isset($errorRequestMessage))
      {
       foreach($errorRequestMessage as $errorrequest)
@@ -89,18 +99,18 @@
 
           <form method="POST">
             <p>
-        <label><u>Auteur :</u></label><input type="text" name="author" value="<?php echo $row["login"]; ?>" readonly="readonly"><br>
-        <label><u>Date :</u></label><input type="text" name="date" value="<?php echo $date; ?>" readonly="readonly"><br>
-        <label><u>Titre :</u></label><input type="text" name="title" placeholder="Titre de l'article"><br>
+        <label><u>Auteur :</u></label><input type="text" name="author" value="<?php echo $article_results["auteur"]; ?>" readonly="readonly"><br>
+        <label><u>Date :</u></label><input type="text" name="date" value="<?php echo $article_results["date"]; ?>" readonly="readonly"><br>
+        <label><u>Titre :</u></label><input type="text" name="title" value="<?php echo $article_results["titre"]; ?>"><br>
         <label><u>Contenu :</u></label>
 
-        <textarea name="content"></textarea>
+        <textarea name="content"><?php echo $article_results["contenu"]; ?></textarea>
         <script>
           CKEDITOR.replace( 'content' );
        </script>
 
         <br>
-        <input class="bouton green" type="submit" name="send" value="Poster l'article">
+        <input class="bouton yellow" type="submit" name="send" value="Éditer l'article">
 
             </p>
           </form>
@@ -116,5 +126,3 @@
     <div class="clear"></div>
 
     <?php include("includes/footer.php"); ?>
-
-  

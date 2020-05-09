@@ -38,7 +38,7 @@
           </div>
 
           <div class="right">
-            <a href="#" class="bouton yellow">Éditer</a>
+            <a href="edit_article.php?id=<?php echo $results["id"]; ?>" class="bouton yellow">Éditer</a>
             <a href="#" class="bouton red">Supprimer</a>
           </div>
           <div style="clear:both;"></div>
