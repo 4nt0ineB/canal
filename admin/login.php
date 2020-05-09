@@ -117,7 +117,7 @@ if(isset($_SESSION["admin"])) // si une session est déjà lancée
             <br>
             <input type="password" name="pass" placeholder="Mot de passe">
             <br>
-            <input class="bouton green" type="submit" name="send">
+            <input class="bouton green" type="submit" name="send" value="Connexion">
           </form>
         </center>
 
@@ -125,11 +125,12 @@ if(isset($_SESSION["admin"])) // si une session est déjà lancée
     </div>
     <div class="right">
       <div class="box_right">
-        <div class="box_title black">bonjour</div>
+        <div class="box_title black">Une création</div>
         <center>
           <a href="https://www.univ-gustave-eiffel.fr/" target="_blank"><img src="../img/logo_univ_gustave_eiffel_bleu.png" style="margin:5px;width:250px;" alt=""></a>
           <br>
-          <i>Université Gustave Eiffel</i>
+          <i>Université Gustave Eiffel</i><br>
+          <b>DUT Informatique 1ère année</b>
         </center>
       </div>
     </div>

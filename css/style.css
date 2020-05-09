@@ -204,7 +204,7 @@ body {
 }
 
 .box_title {
-
+  font-family: "Dyno";
   width: 100%;
   height: 30px;
   background: rgb(183, 91, 42);
@@ -222,8 +222,6 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding-left: 5px;
-  font-weight: bold;
-
 }
 
 .black {
@@ -394,7 +392,7 @@ footer .legals a {
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
 }
 
-.green{
+.bouton.green{
     background-image: linear-gradient(top,#06b101,#049801);
     background-image: -o-linear-gradient(top,#06b101,#049801);
     background-image: -moz-linear-gradient(top,#06b101,#049801);
@@ -402,6 +400,7 @@ footer .legals a {
     background-image: -ms-linear-gradient(top,#06b101,#049801);
     background-color: #049801;
     border: 1px solid #058201;
+    text-decoration: none;
 }
 
 .bouton.green:hover {
@@ -424,6 +423,49 @@ footer .legals a {
     border: 1px solid #036500;
 }
 
+.bouton.yellow {
+    background-image: linear-gradient(top,#aeb101,#989301);
+    background-image: -o-linear-gradient(top,#aeb101,#989301);
+    background-image: -moz-linear-gradient(top,#aeb101,#989301);
+    background-image: -webkit-linear-gradient(top,#aeb101,#989301);
+    background-image: -ms-linear-gradient(top,#aeb101,#989301);
+    background-color: #989301;
+    border: 1px solid #676300;
+    text-decoration: none;
+}
+
+.bouton.yellow:hover {
+    background-image: linear-gradient(top,#878a00,#716d00);
+    background-image: -o-linear-gradient(top,#878a00,#716d00);
+    background-image: -moz-linear-gradient(top,#878a00,#716d00);
+    background-image: -webkit-linear-gradient(top,#878a00,#716d00);
+    background-image: -ms-linear-gradient(top,#878a00,#716d00);
+    background-color: #797500;
+    color: #fff;
+}
+
+
+.bouton.red {
+    background-image: linear-gradient(top,#b10101,#8a0000);
+    background-image: -o-linear-gradient(top,#b10101,#8a0000);
+    background-image: -moz-linear-gradient(top,#b10101,#8a0000);
+    background-image: -webkit-linear-gradient(top,#b10101,#8a0000);
+    background-image: -ms-linear-gradient(top,#b10101,#8a0000);
+    background-color: #980101;
+    border: 1px solid #5d0000;
+    text-decoration: none;
+}
+
+.bouton.red:hover {
+    background-image: linear-gradient(top,#820000,#5a0000);
+    background-image: -o-linear-gradient(top,#820000,#5a0000);
+    background-image: -moz-linear-gradient(top,#820000,#5a0000);
+    background-image: -webkit-linear-gradient(top,#820000,#5a0000);
+    background-image: -ms-linear-gradient(top,#820000,#5a0000);
+    background-color: #5f0000;
+    color: #fff;
+}
+
 .error {
     font-family: "Dyno";
     background: rgba(255, 0, 0, 0.4);
@@ -433,9 +475,9 @@ footer .legals a {
     padding: 1ex;
     border-top: 1px solid rgba(255, 100, 100, 0.75);
     border-bottom: 1px solid rgba(255, 100, 100, 0.75);
-  }
+}
 
-  .info {
+.info {
       font-family: "Dyno";
       background: rgba(216, 255, 0, 0.45);
       color: rgba(132, 112, 12, 0.75);
@@ -444,7 +486,7 @@ footer .legals a {
       padding: 1ex;
       border-top: 1px solid rgba(167, 139, 0, 0.75);
       border-bottom: 1px solid rgba(167, 139, 0, 0.75);
-  }
+}
 
 .success {
   font-family: "Dyno";
@@ -455,4 +497,34 @@ margin-bottom: 3ex;
 padding: 1ex;
 border-top: 1px solid rgba(8, 137, 0, 0.8);
 border-bottom: 1px solid rgba(8, 137, 0, 0.8);
+}
+
+.article_summup {
+    width: 100%;
+    margin-top: 5px;
+    box-sizing: border-box;
+    background-color: #dedede;
+    padding: 5px;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+.article_summup .left {
+  width: 80%;
+  float:left;
+}
+
+.article_summup .left h1 {
+  font-size: 21px;
+  font-family: "Dyno";
+  margin:0;
+  font-weight: normal;
+  border-bottom: 2px solid grey;
+}
+
+.article_summup .right {
+  width: 18%;
+  float:right;
+  vertical-align: middle;
+  text-align: center;
 }

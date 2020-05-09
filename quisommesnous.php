@@ -26,7 +26,7 @@
         <center>
           <div class="profile_picture">
             <!-- easter egg https://cdn.discordapp.com/attachments/648445316269342721/662363770164871181/IMG_0175.JPG -->
-            <img src="img/brian.jpg" style="height:230px;width:174px;" alt="">
+            <img src="img/brian.jpg" style="height:230px;width:174px;image-orientation: from-image;" alt="">
           </div>
 
           <div class="profile_picture">
