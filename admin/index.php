@@ -14,12 +14,12 @@
 	<?php
 
 	include('includes/header.php');
-	include('../includes/menu.php');
+	include('includes/menu.php');
 
 
 	if(!isset($_SESSION["admin"])) // si l'user est pas log 
 	  {
-	    header("location:index.php"); // redirection
+	    header("location:login.php"); // redirection
 	  } 
 
 	?>

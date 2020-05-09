@@ -2,11 +2,13 @@
 session_start();
 include '../includes/database.php';
 
-$id = $_SESSION['admin'];
+if (isset($_SESSION['admin'])){
+  $id = $_SESSION['admin'];
 
-$select_user_info = $db->prepare("SELECT * FROM admins WHERE id=:uid"); // Je séléctionne les paramètres de l'utilisateur
-$select_user_info->execute(array(":uid"=>$id));
-$row=$select_user_info->fetch(PDO::FETCH_ASSOC);
+  $select_user_info = $db->prepare("SELECT * FROM admins WHERE id=:uid"); // Je séléctionne les paramètres de l'utilisateur
+  $select_user_info->execute(array(":uid"=>$id));
+  $row=$select_user_info->fetch(PDO::FETCH_ASSOC);
+}
 
 if (isset($_POST["recup_language"])) {
 
