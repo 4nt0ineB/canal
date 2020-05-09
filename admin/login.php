@@ -11,7 +11,7 @@
 
 <body>
   <div id="container">
-    <?php 
+    <?php
     include('includes/header.php');
     include('../includes/menu.php');
     // ON RECUP LA TRAD DE LA PAGE
@@ -25,12 +25,15 @@
         <div class="box_title">Connexion au panel administrateur</div>
 
         <center>
-          <form>
-            <input type="text" name="login">
+          <br>
+          <span>Pour accéder à cette zone restreinte, vous devez vous connecter</span>
+          <hr>
+          <form method="post">
+            <input type="text" name="login" placeholder="Login" readonly="readonly">
             <br>
-            <input type="password" name="pass">
+            <input type="password" name="pass" placeholder="Mot de passe">
             <br>
-            <input type="submit" name="send">
+            <input class="bouton green" type="submit" name="send">
           </form>
         </center>
 
@@ -51,3 +54,10 @@
     <div class="clear"></div>
 
     <?php include("includes/footer.php"); ?>
+    <script>
+        $(function() { // disable autocomplete
+                setTimeout(function() {
+                    $('input[name="login"]').prop('readonly', false);
+                }, 50);
+            });
+    </script>

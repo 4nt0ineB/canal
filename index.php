@@ -65,7 +65,6 @@
       </div>
     </div>
 
-
     <div class="left">
       <br>
       <div class="box_left">
@@ -83,6 +82,16 @@
         </center>
       </div>
     </div>
+
+    <div class="left">
+      <div class="box_left">
+        <div class="box_title"><?php echo $txt[4][$_SESSION["lang"]]; ?></div>
+        <center>
+          <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/z3fi7o5MOMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+
 
 
     <div class="clear"></div>
