@@ -19,32 +19,6 @@
     $txt = $contenuWaw->fetchAll();
     ?>
 
-    <style>
-      .profile_picture {
-        width: 174px;
-        height: 230px;
-        display: inline-block;
-        border: 2px solid black;
-        margin: 5px auto;
-        box-shadow: 0px 2px 3px 0px black;
-      }
-
-      .label_picture {
-        margin: 5px auto;
-        width: 174px;
-        display: inline-block;
-        font-weight: bold;
-      }
-
-      .label_role {
-        margin: 5px auto;
-        width: 174px;
-        display: inline-block;
-        font-style: italic;
-        font-size: 15px;
-      }
-    </style>
-
     <div class="left">
       <div class="box_left">
         <div class="box_title"><?php echo $txt[0][$_SESSION["lang"]]; ?></div>

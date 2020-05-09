@@ -268,9 +268,10 @@ footer img {
   padding: 10px 10px;
 }
 
-footer .legals{
-	float: right;
-    line-height: 5.5;
+footer .legals {
+    float: right;
+    margin-top: 20px;
+    line-height: 1.5;
 }
 
 footer .legals a {
@@ -325,4 +326,42 @@ footer .legals a {
   font-family: "Dyno";
   color: #fff;
   text-decoration: none;
+}
+
+.profile_picture {
+        width: 174px;
+        height: 230px;
+        display: inline-block;
+        border: 2px solid black;
+        margin: 5px auto;
+        box-shadow: 0px 2px 3px 0px black;
+      }
+
+      .label_picture {
+        margin: 5px auto;
+        width: 174px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      .label_role {
+        margin: 5px auto;
+        width: 174px;
+        display: inline-block;
+        font-style: italic;
+        font-size: 15px;
+      }
+
+.box_title input[type="text"]:not(.nostyle), input[type="password"]:not(.nostyle), textarea:not(.nostyle):not(.cke_source), .input_textarea {
+    -webkit-box-shadow: 0 2px 2px #f8f8f8 inset, 0 1px 0 #fff;
+    box-shadow: 0 2px 2px #f8f8f8 inset, 0 1px 0 #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    padding: 7px;
+    margin: 0;
+    font-family: verdana,arial,tahoma;
+    font-size: 11px;
+    border: 1px solid #b5bac3;
 }

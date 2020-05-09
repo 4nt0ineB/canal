@@ -16,8 +16,8 @@
     include('includes/header.php');
     include('includes/menu.php');
     //ON RECUP LA TRAD DE LA PAGE
-    $contenuIndex = $db->query("SELECT * FROM p_recherche");
-    $txt = $contenuIndex->fetchAll();
+    $contenuRecherche = $db->query("SELECT * FROM p_recherche");
+    $txt = $contenuRecherche->fetchAll();
     ?>
 
     <div class="left">
