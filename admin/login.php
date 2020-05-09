@@ -13,7 +13,7 @@
   <div id="container">
     <?php
     include('includes/header.php');
-    include('../includes/menu.php');
+    include('includes/menu.php');
     // ON RECUP LA TRAD DE LA PAGE
     /*
     $contenuLogin = $db->query("SELECT * FROM p_login");

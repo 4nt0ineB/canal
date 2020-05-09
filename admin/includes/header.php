@@ -33,7 +33,7 @@ if (isset($_POST["recup_language"])) {
 
 <div id="header">
   <div id="search">
-    <form action="recherche.php" method="POST">
+    <form action="../recherche.php" method="POST">
       <?php
          if ($_SESSION["lang"] == "en") {
             echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Search...\">";
