@@ -11,7 +11,7 @@
 
 <body>
   <div id="container">
-    <?php 
+    <?php
     include('includes/header.php');
     include('../includes/menu.php');
     // ON RECUP LA TRAD DE LA PAGE
