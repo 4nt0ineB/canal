@@ -25,6 +25,11 @@
         //ON RECUP LA TRAD DE LA PAGE
         $contenuIndex = $db->query("SELECT * FROM p_naviguer");
         $txt = $contenuIndex->fetchAll();
+
+        // statistiques
+        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"naviguer\";")->fetch();
+        $count = $query_count["compteur"];
+        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"naviguer\";");
         ?>
 
 

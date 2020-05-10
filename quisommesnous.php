@@ -17,6 +17,11 @@
     // ON RECUP LA TRAD DE LA PAGE
     $contenuWaw = $db->query("SELECT * FROM p_waw");
     $txt = $contenuWaw->fetchAll();
+
+    // statistiques
+    $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"quisommesnous\";")->fetch();
+    $count = $query_count["compteur"];
+    $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"quisommesnous\";");
     ?>
 
     <div class="left">

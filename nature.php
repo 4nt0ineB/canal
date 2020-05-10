@@ -19,6 +19,11 @@
         <?php // ON RECUP TOUT LE CONTENU TEXTUEL 
         $contenu = $db->query("SELECT * FROM p_nature");
         $txt = $contenu->fetchAll();
+
+        // statistiques
+        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"nature\";")->fetch();
+        $count = $query_count["compteur"];
+        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"nature\";");
         ?>
 
         <div class="left">

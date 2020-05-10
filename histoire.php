@@ -12,7 +12,14 @@
 
 <body>
   <div id="container">
-    <?php include('includes/header.php'); ?>
+    <?php 
+    include('includes/header.php');
+
+    // statistiques
+    $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"histoire\";")->fetch();
+    $count = $query_count["compteur"];
+    $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"histoire\";");
+     ?>
 
     <?php include('includes/menu.php'); ?>
 

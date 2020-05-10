@@ -18,6 +18,11 @@
     //ON RECUP LA TRAD DE LA PAGE
     $contenuRecherche = $db->query("SELECT * FROM p_recherche");
     $txt = $contenuRecherche->fetchAll();
+
+    // statistiques
+    $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"recherche\";")->fetch();
+    $count = $query_count["compteur"];
+    $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"recherche\";");
     ?>
 
     <div class="left">
