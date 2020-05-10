@@ -25,6 +25,26 @@
     $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"index\";")->fetch();
     $count = $query_count["compteur"];
     $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"index\";");
+
+
+    // get ip
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){ // récupérer l'ip du visiteur de différentes manières
+        //ip depuis protocole internet HTTP
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        // sinon ip depuis proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }else{
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+
+    if (isset($ip)){
+      $user_exists = $db->query("SELECT * FROM visiteurs WHERE ip=\"$ip\"");
+
+      if ($user_exists->rowCount() == 0){
+        $db->query("INSERT INTO visiteurs VALUES (NULL, \"$ip\");");
+      }
+    }
     ?>
 
     <div id="slideshow">
