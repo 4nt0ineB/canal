@@ -41,8 +41,13 @@
     if (isset($ip)){
       $user_exists = $db->query("SELECT * FROM visiteurs WHERE ip=\"$ip\"");
 
+      $ip_query = $user_exists->fetch();
+      $count_ip = $ip_query["compteur"];
+
       if ($user_exists->rowCount() == 0){
-        $db->query("INSERT INTO visiteurs VALUES (NULL, \"$ip\");");
+        $db->query("INSERT INTO visiteurs VALUES (NULL, \"$ip\", 1, NOW(), NOW());");
+      } else {
+        $db->query("UPDATE visiteurs SET compteur=$count_ip+1, lastLogin=NOW() WHERE ip=\"$ip\";");
       }
     }
     ?>
