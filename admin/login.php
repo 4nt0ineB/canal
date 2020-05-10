@@ -18,6 +18,11 @@
     /*
     $contenuLogin = $db->query("SELECT * FROM p_login");
     $txt = $contenuLogin->fetchAll();*/
+
+    // statistiques
+    $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"login_admin\";")->fetch();
+    $count = $query_count["compteur"];
+    $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"login_admin\";");
     ?>
 
     <div class="left">
