@@ -26,25 +26,27 @@
     $count = $query_count["compteur"];
     $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"index\";");
 
+    // articles
+    $articles = $db->query("SELECT * FROM articles ORDER BY date DESC LIMIT 3");
 
     // get ip
-    if(!empty($_SERVER['HTTP_CLIENT_IP'])){ // récupérer l'ip du visiteur de différentes manières
-        //ip depuis protocole internet HTTP
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-        // sinon ip depuis proxy
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }else{
-        $ip = $_SERVER['REMOTE_ADDR'];
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) { // récupérer l'ip du visiteur de différentes manières
+      //ip depuis protocole internet HTTP
+      $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      // sinon ip depuis proxy
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+      $ip = $_SERVER['REMOTE_ADDR'];
     }
 
-    if (isset($ip)){
+    if (isset($ip)) {
       $user_exists = $db->query("SELECT * FROM visiteurs WHERE ip=\"$ip\"");
 
       $ip_query = $user_exists->fetch();
       $count_ip = $ip_query["compteur"];
 
-      if ($user_exists->rowCount() == 0){
+      if ($user_exists->rowCount() == 0) {
         $db->query("INSERT INTO visiteurs VALUES (NULL, \"$ip\", 1, NOW(), NOW());");
       } else {
         $db->query("UPDATE visiteurs SET compteur=$count_ip+1, lastLogin=NOW() WHERE ip=\"$ip\";");
@@ -119,8 +121,22 @@
         <div class="box_title"><?php echo $txt[4][$_SESSION["lang"]]; ?></div>
         <center>
           <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/z3fi7o5MOMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
       </div>
     </div>
+
+    <?php
+    while ($a = $articles->fetch()) {
+      echo '
+      <div class="left">
+      <br>
+      <div class="box_left">
+        <div class="box_title">' . $a['titre'] . '</div>';
+
+      echo $a['contenu'] . '</div></div>';
+    }
+
+    ?>
 
 
 
