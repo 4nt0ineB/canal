@@ -82,8 +82,6 @@
         </div>
         <?php include("includes/aside.php"); ?>
 
-
-
         <div class="clear"></div>
 
         <?php include("includes/footer.php"); ?>

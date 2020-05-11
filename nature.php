@@ -261,14 +261,7 @@
 
             </div>
         </div>
-        <div class="right">
-            <div class="box_right">
 
-
-                <div class="box_title black">Catégorie</div>
-                test
-            </div>
-        </div>
 
         <div class="clear"></div>
 
