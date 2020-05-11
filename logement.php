@@ -34,7 +34,7 @@
                 <div class="c1">
                     <br>
                     <div id="lovely-things-list">
-                        <input class="search" placeholder="Search lovely things" />
+                        <input class="search" placeholder="Chercher" />
                         <ul class="sort-by">
                             <li class="sort btn" data-sort="name">Sort by name</li>
                             <li class="sort btn" data-sort="category">Sort by category</li>
