@@ -34,7 +34,6 @@
         if (isset($_GET['del'])) {
             $idDel = $_GET['del'];
             $db->query("DELETE FROM fiches WHERE id=$idDel");
-            header("Refresh:0");
         }
         ?>
 

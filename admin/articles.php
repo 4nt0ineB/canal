@@ -24,6 +24,11 @@
 
     $article = $db->query("SELECT * FROM articles");
 
+    if (isset($_GET['delete'])) {
+            $idDel = $_GET['delete'];
+            $db->query("DELETE FROM articles WHERE id=$idDel");
+    }
+
     ?>
 
     <div class="left">
@@ -40,7 +45,7 @@
             <div class="right">
               <a href="../voir_article.php?id=<?php echo $results["id"]; ?>" class="bouton green" target="_blank">Voir</a>
               <a href="edit_article.php?id=<?php echo $results["id"]; ?>" class="bouton yellow">Éditer</a>
-              <a href="#" class="bouton red">Supprimer</a>
+              <a href="articles.php?delete=<?php echo $results["id"]; ?>" class="bouton red">Supprimer</a>
             </div>
             <div style="clear:both;"></div>
           </div>
