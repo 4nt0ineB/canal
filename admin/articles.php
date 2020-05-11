@@ -10,46 +10,46 @@
 </head>
 
 <body>
-	<div id="container">
-	<?php
+  <div id="container">
+    <?php
 
-	include('includes/header.php');
-	include('includes/menu.php');
+    include('includes/header.php');
+    include('includes/menu.php');
 
 
-	if(!isset($_SESSION["admin"])) // si l'user est pas log 
-	  {
-	    header("location:login.php"); // redirection
-	  } 
+    if (!isset($_SESSION["admin"])) // si l'user est pas log 
+    {
+      header("location:login.php"); // redirection
+    }
 
-  $article = $db->query("SELECT * FROM articles");
+    $article = $db->query("SELECT * FROM articles");
 
-	?>
+    ?>
 
-<div class="left">
+    <div class="left">
       <div class="box_left">
         <div class="box_title">Liste des articles</div>
-        
-        <?php while ($results = $article->fetch()): ?>
-        <div class="article_summup">
-          <div class="left">
-            <h1><?php echo $results["titre"]; ?></h1><br>
-            <span>Écrit par <b><?php echo $results["auteur"]; ?></b> <?php echo edit_date_format($results["date"]); ?></span>
-          </div>
 
-          <div class="right">
-            <a href="../voir_article.php?id=<?php echo $results["id"]; ?>" class="bouton green" target="_blank">Voir</a>
-            <a href="edit_article.php?id=<?php echo $results["id"]; ?>" class="bouton yellow">Éditer</a>
-            <a href="#" class="bouton red">Supprimer</a>
+        <?php while ($results = $article->fetch()) : ?>
+          <div class="article_summup">
+            <div class="left">
+              <h1><?php echo $results["titre"]; ?></h1><br>
+              <span>Écrit par <b><?php echo $results["auteur"]; ?></b> <?php echo edit_date_format($results["date"]); ?></span>
+            </div>
+
+            <div class="right">
+              <a href="../voir_article.php?id=<?php echo $results["id"]; ?>" class="bouton green" target="_blank">Voir</a>
+              <a href="edit_article.php?id=<?php echo $results["id"]; ?>" class="bouton yellow">Éditer</a>
+              <a href="#" class="bouton red">Supprimer</a>
+            </div>
+            <div style="clear:both;"></div>
           </div>
-          <div style="clear:both;"></div>
-        </div>
         <?php endwhile; ?>
 
 
 
       </div>
-</div>
+    </div>
     <?php include("includes/aside.php"); ?>
 
 
