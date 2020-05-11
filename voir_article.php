@@ -58,7 +58,7 @@
             <i><?php echo $txt[5][$_SESSION["lang"]]; ?> : Inconnue</i>
           </div>
           <div class="social">
-            <a class="facebook" title="Partager" target="_blank" href="#"></a>
+            <a class="facebook" title="Partager" target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"></a>
             <a class="twitter" title="Tweeter" target="_blank" href="#"></a>
           </div>
           <div style="clear:both;"></div>

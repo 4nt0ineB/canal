@@ -71,7 +71,7 @@
           <div class="article_summup">
           <div class="left">
             <h1><?php echo $resultats["titre"]; ?></h1><br>
-            <span>Écrit par <b><?php echo $resultats["auteur"]; ?></b> <?php echo edit_date_format($resultats["date"]); ?></span>
+            <span><?php echo $txt[7][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($resultats["date"]); ?></b></span>
           </div>
 
           <div class="right">
