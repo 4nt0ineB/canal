@@ -18,3 +18,18 @@ $(document).ready(function(){
     $(".language-dropdown").removeClass("open");
   });
 })
+
+
+// UP PAGE
+$(function(){
+  $(window).scroll(function(){
+    if($(window).scrollTop()<445){
+      $("#btnUp").fadeOut("fast");
+    } else {
+      $("#btnUp").fadeIn("fast");
+    }
+  });
+  $("#btnUp").click(function() {
+    $("html,body").animate({scrollTop: 0}, "fast");
+  });
+});

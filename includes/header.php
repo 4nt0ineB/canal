@@ -23,7 +23,7 @@ if (isset($_POST["recup_language"])) {
 ?>
 <form method="POST" id="choix1"> <input type="hidden" name="recup_language" value="<?php echo $_SESSION["otherlanguages"][0]; ?>" /> </form>
 <form method="POST" id="choix2"> <input type="hidden" name="recup_language" value="<?php echo $_SESSION["otherlanguages"][1]; ?>" /> </form>
-
+<div id="btnUp" style="display: block;"></div>
 <div id="header">
   <div id="search">
     <form action="recherche.php" method="POST">

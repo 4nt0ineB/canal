@@ -604,3 +604,14 @@ border-bottom: 1px solid rgba(8, 137, 0, 0.8);
 .box_left .content{
   padding:2px;
 }
+
+#btnUp {
+    background-image: url(../img/up.png);
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+}
