@@ -163,7 +163,7 @@ h1 {
 #lovely-things-list p {
     font: normal 14px/1.3 'helvetica neue', helvetica, arial;
     color: rgb(83, 81, 81);
-    text-align: left;
+    text-align: right;
 }
 
 #lovely-things-list .sort-by {

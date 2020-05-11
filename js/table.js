@@ -1,7 +1,3 @@
-/*
- * LOVELY THINGS
- */
-
 var options = {
     valueNames: ['name', 'description', 'category']
 };
