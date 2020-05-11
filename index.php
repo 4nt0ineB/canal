@@ -125,7 +125,7 @@
       <div class="right">
       <br>
       <div class="box_right">
-        <div class="box_title black">Notre dernier article</div>';
+        <div class="box_title black">'; echo $txt[12][$_SESSION["lang"]]; echo'</div>';
 
     $string = strip_tags($a['contenu']);
     if (strlen($string) > 500) {
@@ -137,7 +137,8 @@
 
     //if the string doesn't contain any space then it will cut without word basis.
     $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-    $string .= "... <a href=\"voir_article.php?id=$id\">Voir plus</a>";
+    $viewmore = $txt[13][$_SESSION["lang"]];
+    $string .= "... <a href=\"voir_article.php?id=$id\">$viewmore</a>";
     }
       echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$a['titre'].'</a></b></center><hr>';
       echo '<p>'.$string.'</p></div></div>';
