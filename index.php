@@ -27,7 +27,7 @@
     $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"index\";");
 
     // articles
-    $articles = $db->query("SELECT * FROM articles ORDER BY date DESC LIMIT 3");
+    $articles = $db->query("SELECT * FROM articles ORDER BY date DESC LIMIT 1");
 
     // get ip
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) { // récupérer l'ip du visiteur de différentes manières
@@ -115,6 +115,36 @@
       </div>
     </div>
 
+    <?php
+
+  
+
+
+    while ($a = $articles->fetch()) {
+      echo '
+      <div class="right">
+      <br>
+      <div class="box_right">
+        <div class="box_title black">Notre dernier article</div>';
+
+    $string = strip_tags($a['contenu']);
+    if (strlen($string) > 500) {
+
+    // truncate string
+    $stringCut = substr($string, 0, 500);
+    $endPoint = strrpos($stringCut, ' ');
+    $id = $a['id'];
+
+    //if the string doesn't contain any space then it will cut without word basis.
+    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    $string .= "... <a href=\"voir_article.php?id=$id\">Voir plus</a>";
+    }
+      echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$a['titre'].'</a></b></center><hr>';
+      echo '<p>'.$string.'</p></div></div>';
+    }
+
+    ?>
+
     <div class="left">
       <br>
       <div class="box_left">
@@ -125,18 +155,7 @@
       </div>
     </div>
 
-    <?php
-    while ($a = $articles->fetch()) {
-      echo '
-      <div class="left">
-      <br>
-      <div class="box_left">
-        <div class="box_title">' . $a['titre'] . '</div>';
-
-      echo $a['contenu'] . '</div></div>';
-    }
-
-    ?>
+  
 
 
 
