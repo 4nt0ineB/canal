@@ -38,6 +38,7 @@
           </div>
 
           <div class="right">
+            <a href="../voir_article.php?id=<?php echo $results["id"]; ?>" class="bouton green" target="_blank">Voir</a>
             <a href="edit_article.php?id=<?php echo $results["id"]; ?>" class="bouton yellow">Éditer</a>
             <a href="#" class="bouton red">Supprimer</a>
           </div>

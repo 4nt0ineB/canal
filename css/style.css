@@ -390,6 +390,7 @@ footer .legals a {
     padding: 6px;
     text-align: center;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+    margin: 3px;
 }
 
 .bouton.green{

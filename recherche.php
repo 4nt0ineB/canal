@@ -47,12 +47,40 @@
             echo $txt[3][$_SESSION["lang"]];
             echo "</p>";
           } else {
-            echo "<p>Articles that matches with : ";
+
+            /* requête recherche */
+            $recherche = $db->query("SELECT * FROM articles WHERE titre LIKE \"%$search%\" OR contenu LIKE \"%$search%\";");
+
+            echo "<p><u>";echo $txt[4][$_SESSION["lang"]];echo"</u> : ";
             echo htmlspecialchars($search);
             echo "</p><hr>";
           }
         } ?>
 
+
+        <?php 
+        if (isset($recherche)){
+          if ($recherche->rowCount() == 0){
+            echo "<center><b>";
+            echo $txt[5][$_SESSION["lang"]];
+            echo "</b></center>";
+          } 
+        
+
+        while ($resultats = $recherche->fetch()){ ?>
+          <div class="article_summup">
+          <div class="left">
+            <h1><?php echo $resultats["titre"]; ?></h1><br>
+            <span>Écrit par <b><?php echo $resultats["auteur"]; ?></b> <?php echo edit_date_format($resultats["date"]); ?></span>
+          </div>
+
+          <div class="right">
+            <a href="voir_article.php?id=<?php echo $resultats["id"]; ?>" class="bouton green"><?php echo $txt[6][$_SESSION["lang"]]; ?></a>
+          </div>
+          <div style="clear:both;"></div>
+        </div>
+
+        <?php }} ?>
 
       </div>
     </div>
