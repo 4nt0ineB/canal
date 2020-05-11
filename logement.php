@@ -22,9 +22,9 @@
 
 
         // statistiques
-        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"survey\";")->fetch();
+        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"logement\";")->fetch();
         $count = $query_count["compteur"];
-        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"survey\";");
+        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"logement\";");
         ?>
 
         <div class="left">
@@ -51,7 +51,7 @@
                                 //on utilisera le <a></a> pour faire passer en post l'id de la fiche de laquelle on souhaite voir sa description
                                 echo '<li>
                                     <img src="' . $f['miniature'] . '"class="thumb">
-                                    <a href="#"><h4><span  class="name">' . $f['titre'] . '</span> <span class="category">' . $f["tag"] . '</span></h4></a>
+                                    <a href="fiche.php?id=' . $f['id'] . '"><h4><span  class="name">' . $f['titre'] . '</span> <span class="category">' . $f["tag"] . '</span></h4></a>
                                     <p class="description">' . $f["adresse"] . '<br>' . $f["code_postal"] . ' ' . $f["localite"] . '</p>
                                     </li>';
                             }
