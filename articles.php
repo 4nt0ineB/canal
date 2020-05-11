@@ -23,36 +23,27 @@
     $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"articles\";")->fetch();
     $count = $query_count["compteur"];
     $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"articles\";");
+
+    $article = $db->query("SELECT * FROM articles");
     ?>
 
     <div class="left">
       <div class="box_left">
         <div class="box_title"><?php echo $txt[0][$_SESSION["lang"]]; ?></div>
-        <h2><span style="font-weight: 200;"><span style="font-weight: 400;"></h2>
 
-        <?php 
+        <?php while ($results = $article->fetch()): ?>
+        <div class="article_summup">
+          <div class="left">
+            <h1><?php echo $results["titre"]; ?></h1><br>
+            <span><?php echo $txt[4][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($results["date"]); ?></b></span>
+          </div>
 
-        if (!isset($_GET["id"])) {
-
-          echo "<p>";
-          echo $txt[1][$_SESSION["lang"]];
-          echo "</p>";
-
-        } else {
-
-          $id = $_GET["id"];
-
-          if (empty($id)) {
-            echo "<p>";
-            echo $txt[1][$_SESSION["lang"]];
-            echo "</p>";
-          } else {
-            echo "<p>Articles that matches with : ";
-            echo htmlspecialchars($id);
-            echo "</p><hr>";
-          }
-        } ?>
-
+          <div class="right">
+            <a href="voir_article.php?id=<?php echo $results["id"]; ?>" class="bouton green"><?php echo $txt[6][$_SESSION["lang"]]; ?></a>
+          </div>
+          <div style="clear:both;"></div>
+        </div>
+        <?php endwhile; ?>
 
       </div>
     </div>
