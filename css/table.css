@@ -5,7 +5,7 @@ ul {
 
 
 .c1 {
-    width: 750px;
+    width: 100%;
     float: left;
 }
 
@@ -84,9 +84,11 @@ input:focus {
 }
 
 .btn:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(171, 171, 171);
     color: #fafafa;
 }
+
+
 
 table {
     border-collapse: collapse;
@@ -136,18 +138,29 @@ h1 {
 }
 
 #lovely-things-list .list {
+    width: 91%;
     clear: both;
     margin-bottom: 10px;
 }
 
 #lovely-things-list .list li {
-    padding: 20px;
+    padding: 13px;
+    margin: 5px;
+    border: 1px solid grey;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
 }
 
-#lovely-things-list li:nth-child(2n+1) {
+#lovely-things-list .list li a {
+    text-decoration: none;
+}
+
+#lovely-things-list .list li:nth-child(2n+1) {
     background-color: rgba(0, 0, 0, 0.1);
-    border: solid 1px rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 18px;
 }
 
 #lovely-things-list li:nth-child(2n+1) .thumb {
@@ -155,15 +168,16 @@ h1 {
 }
 
 #lovely-things-list h4 {
-    color: black;
-    font-weight: bold;
-    margin-bottom: 6px;
+    color: #343434;
+    margin: 0px 0px 10px 0px;
+    font-family: "Dyno";
 }
 
 #lovely-things-list p {
-    font: normal 14px/1.3 'helvetica neue', helvetica, arial;
     color: rgb(83, 81, 81);
     text-align: right;
+    font-size: 15px;
+    font-family: "Open Sans",verdana,arial,tahoma;
 }
 
 #lovely-things-list .sort-by {

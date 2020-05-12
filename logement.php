@@ -6,7 +6,7 @@
     <title>Site web - Canal du Midi</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/language.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
 
     <link rel="stylesheet" href="css/table.css">
 </head>
@@ -34,9 +34,9 @@
                 <div class="c1">
                     <br>
                     <div id="lovely-things-list">
-                        <input class="search" placeholder="Chercher" />
+                        <input type="text" class="search" placeholder="Chercher" />
                         <ul class="sort-by">
-                            <li class="sort btn" data-sort="name">Sort by name</li>
+                            <li class="sort btn" data-sort="name" style="border-radius: 10px;">Sort by name</li>
                             <li class="sort btn" data-sort="category">Sort by category</li>
                         </ul>
                         <ul class="filter">
