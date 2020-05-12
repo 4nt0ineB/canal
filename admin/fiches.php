@@ -22,14 +22,9 @@
             header("location:login.php"); // redirection
         }
 
-        //ON RECUP LA TRAD DE LA PAGE
+        //ON RECUP LES FICHES
         $qFiche = $db->query("SELECT * FROM fiches");
 
-
-        // statistiques
-        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"logement\";")->fetch();
-        $count = $query_count["compteur"];
-        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"logement\";");
 
         if (isset($_GET['del'])) {
             $idDel = $_GET['del'];
