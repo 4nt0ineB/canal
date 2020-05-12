@@ -15,14 +15,29 @@
         include('includes/header.php');
         include('includes/menu.php');
         //ON RECUP LA FICHE
-        $i = $_GET['id'];
-        $fiche = $db->query("SELECT * FROM fiches WHERE id=$i")->fetch();
-
+        if (isset($_GET['id'])){
+        	$i = $_GET['id'];
+        }
 
         // statistiques
         $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"fiche\";")->fetch();
         $count = $query_count["compteur"];
         $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"fiche\";");
+
+        if (!isset($i)){
+        	$errorMessage = "Merci de sélectionner une fiche.";
+        } else if (empty($i)){
+        	$errorMessage = "Merci de sélectionner une fiche correcte.";
+        } else if (!is_numeric($i)){
+			$errorMessage = "Merci de sélectionner une fiche correcte.";
+        } else {
+        	$fiche = $db->query("SELECT * FROM fiches WHERE id=$i")->fetch();
+        }
+
+        if (isset($errorMessage)){
+        	echo '<p>'.$errorMessage.'</p>';
+        	die;
+        }
         ?>
 
         <div class="left">
