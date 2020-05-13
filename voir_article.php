@@ -80,13 +80,6 @@ use Translate\Exception;
               $lang = $_SESSION["lang"];
               $translation = $translator->translate($titre, "fr-$lang");
 
-              /*echo $translation; // Привет мир
-              echo "<br>";
-              echo $translation->getSource(); // Hello world;
-              echo "<br>";
-              echo $translation->getSourceLanguage(); // en
-              echo " to ";
-              echo $translation->getResultLanguage(); // ru*/
             } catch (Exception $e) {
               // handle exception
             }

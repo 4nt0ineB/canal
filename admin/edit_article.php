@@ -51,7 +51,7 @@
   if(isset($_REQUEST['send'])) // si le formulaire est envoyé avec le bouton send
   {
     $titre = strip_tags($_REQUEST["title"]);
-    $contenu = $_REQUEST["content"];
+    $contenu = str_replace('"','\"',$_REQUEST["content"]);
      try
      {
       if (empty($titre) || strlen($titre) < 3){ // si le titre est vide ou inférieur a 3 caractères
