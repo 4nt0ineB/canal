@@ -73,7 +73,7 @@ use Translate\Exception;
   if(isset($_REQUEST['submitComment'])) // si le formulaire est envoyé avec le bouton send
   {
     $pseudo = strip_tags($_REQUEST["pseudo"]); // on stock les variables reçues
-    $comment = strip_tags($_REQUEST["comment"]);
+    $comment = $_REQUEST["comment"];
      try
      {
       if (empty($comment) || strlen($comment) < 10){ // si le titre est vide ou inférieur a 3 caractères
@@ -201,7 +201,7 @@ use Translate\Exception;
 
 
       </div>
-
+      <br>
     <div class="box_left">
         <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
 
@@ -209,14 +209,14 @@ use Translate\Exception;
         <p class="comment_section">
           <span class="comment_details"><?php echo $txt[13][$_SESSION["lang"]]; ?> <b><?php echo $results["pseudo"]; ?></b> <?php echo edit_date_format($results["date"]); ?></span>
           <br>
-          <span class="comment_content"><?php echo $results["commentaire"]; ?></span>
+          <span class="comment_content"><?php echo htmlspecialchars($results["commentaire"]); ?></span>
         </p>
         <?php endwhile; ?>
         <hr>
 
         <p style="margin:10px;"><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
           <form method="POST">
-            <input type="text" name="pseudo" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[10][$_SESSION["lang"]]; ?>" max="15">
+            <input type="text" name="pseudo" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[10][$_SESSION["lang"]]; ?>" maxlength="15">
             <textarea name="comment" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[11][$_SESSION["lang"]]; ?>"></textarea><br>
 
             <input class="bouton green" type="submit" name="submitComment" value="<?php echo $txt[12][$_SESSION["lang"]]; ?>" style="margin:10px;">
