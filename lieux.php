@@ -85,15 +85,7 @@
                 <div style="clear:both;"></div>
             </div>
         </div>
-        <div class="right">
-            <div class="box_right">
-                <div class="box_title black"><?php echo 'Auké'; ?></div>
 
-                <center>
-
-                </center>
-            </div>
-        </div>
 
 
 
