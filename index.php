@@ -160,13 +160,15 @@ use Translate\Exception;
     $viewmore = $txt[13][$_SESSION["lang"]];
 
     $lang = $_SESSION["lang"];
+    $titre = $a['titre'];
+
     if ($lang != "fr"){ // si le site n'est pas en version française
       try {
                 $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
                 $translator = new Translator($key);
                 $texte = html_entity_decode($string);
                 $string = $translator->translate($texte, "fr-$lang");
-
+                $titre = $translator->translate($titre, "fr-$lang");
               } catch (Exception $e) {
                 // handle exception
       }
@@ -175,7 +177,7 @@ use Translate\Exception;
     $string .= "... <a href=\"voir_article.php?id=$id\">$viewmore</a>";
 
     }
-      echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$a['titre'].'</a></b></center><hr>';
+      echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$titre.'</a></b></center><hr>';
       echo '<p>'.$string.'</p></div></div>';
     }
 
