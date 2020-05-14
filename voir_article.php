@@ -34,6 +34,7 @@ use Translate\Exception;
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/language.css">
   <link rel="stylesheet" href="css/slideshow.css">
+  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 </head>
 
 <body>
@@ -43,9 +44,10 @@ use Translate\Exception;
     include('includes/header.php');
     include('includes/menu.php');
     //ON RECUP LA TRAD DE LA PAGE
+    $id = $_GET["id"];
     $contenuArticle = $db->query("SELECT * FROM p_article");
     $txt = $contenuArticle->fetchAll();
-
+    $commentaires = $db->query("SELECT * FROM commentaires WHERE idArticle=$id;");
     // statistiques
     $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"voir_article\";")->fetch();
     $count = $query_count["compteur"];
@@ -61,13 +63,65 @@ use Translate\Exception;
     }
 
     if (!isset($errorMessage)) {
-      $id = $_GET["id"];
       $article = $db->query("SELECT * FROM articles WHERE id = $id;")->fetch();
     }
     ?>
 
     <div class="left">
-      <div class="box_left" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;">
+
+      <?php
+  if(isset($_REQUEST['submitComment'])) // si le formulaire est envoyé avec le bouton send
+  {
+    $pseudo = strip_tags($_REQUEST["pseudo"]); // on stock les variables reçues
+    $comment = strip_tags($_REQUEST["comment"]);
+     try
+     {
+      if (empty($comment) || strlen($comment) < 10){ // si le titre est vide ou inférieur a 3 caractères
+        $errorCommentMessage[]="Merci de saisir un commentaire supérieur à 10 caractères";
+      }
+
+      else if(!isset($errorCommentMessage)) // si aucune erreur :
+      {
+       $insert_comment=$db->prepare("INSERT INTO commentaires VALUES (NULL, :pseudo, :comment, :idarticle, NOW());");   // on créer la demande dans la BDD
+
+       if($insert_comment->execute(array(':pseudo'=>$pseudo, ':comment'=>$comment, ':idarticle'=>$id))){
+
+        $goodMessage="Le commentaire a été ajouté avec succès. Raffraîchissement..."; // message de succès
+        header("refresh:2; voir_article.php?id=$id");
+       }
+      }
+     }
+     catch(PDOException $e)
+     {
+      echo $e->getMessage();
+     }
+    }
+   ?>
+
+
+      <?php
+     if(isset($errorCommentMessage))
+     {
+      foreach($errorCommentMessage as $error)
+      {
+      ?>
+       <br>
+       <div class="error"><?php echo $error; ?></div>
+         <?php
+      }
+     }
+     if(isset($goodMessage))
+     {
+     ?>
+      <br>
+      <div class="success">
+        <?php echo $goodMessage; ?>
+      </div>
+     <?php
+     }
+     ?>
+
+      <div class="box_left">
         <div class="box_title">
           <?php
           if (isset($errorMessage)) {
@@ -91,6 +145,7 @@ use Translate\Exception;
             }
           ?>
 
+          <div class="comments"><?php echo $commentaires->rowCount(); ?> <?php echo $txt[14][$_SESSION["lang"]]; ?></div>
         </div>
 
         <div class="more_infos">
@@ -117,13 +172,6 @@ use Translate\Exception;
               $contenu = html_entity_decode(strip_tags($article["contenu"], '<p><strong><hr><h2><h1><b><u><i><img>'));
               $translation = $translator->translate($contenu, "fr-$lang");
 
-              /*echo $translation; // Привет мир
-              echo "<br>";
-              echo $translation->getSource(); // Hello world;
-              echo "<br>";
-              echo $translation->getSourceLanguage(); // en
-              echo " to ";
-              echo $translation->getResultLanguage(); // ru*/
             } catch (Exception $e) {
               // handle exception
             }
@@ -133,8 +181,6 @@ use Translate\Exception;
             } else {
               echo $article["contenu"];
             }
-
-
 
             ?></p>
         </div>
@@ -155,6 +201,30 @@ use Translate\Exception;
 
 
       </div>
+
+    <div class="box_left">
+        <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
+
+        <?php while ($results = $commentaires->fetch()) : ?>
+        <p class="comment_section">
+          <span class="comment_details"><?php echo $txt[13][$_SESSION["lang"]]; ?> <b><?php echo $results["pseudo"]; ?></b> <?php echo edit_date_format($results["date"]); ?></span>
+          <br>
+          <span class="comment_content"><?php echo $results["commentaire"]; ?></span>
+        </p>
+        <?php endwhile; ?>
+        <hr>
+
+        <p style="margin:10px;"><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
+          <form method="POST">
+            <input type="text" name="pseudo" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[10][$_SESSION["lang"]]; ?>" max="15">
+            <textarea name="comment" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[11][$_SESSION["lang"]]; ?>"></textarea><br>
+
+            <input class="bouton green" type="submit" name="submitComment" value="<?php echo $txt[12][$_SESSION["lang"]]; ?>" style="margin:10px;">
+          </form>
+    </div>
+
+
+
     </div>
     <div class="right">
       <div class="box_right">
