@@ -16,9 +16,9 @@ $nrow = ($_SESSION["lang"] == "fr") ? 0 : 1; // c'est une table chelou du coup f
     <li><a href="naviguer.php"><?php echo $txtNav[$nrow]["t8"]; ?></a></li> |
     <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t9"]; ?></a>
       <div class="dropdown-content">
-        <a href="logement.php"><?php echo $txtNav[$nrow]["t10"]; ?></a>
-        <a href="#"><?php echo $txtNav[$nrow]["t11"]; ?></a>
-        <a href="#"><?php echo $txtNav[$nrow]["t12"]; ?></a>
+        <a href="lieux.php?tf=logement"><?php echo $txtNav[$nrow]["t10"]; ?></a>
+        <a href="lieux.php?tf=restauration"><?php echo $txtNav[$nrow]["t11"]; ?></a>
+        <a href="lieux.php?tf=loisirs"><?php echo $txtNav[$nrow]["t12"]; ?></a>
       </div>
     </li> |
     <li><a href="#"><?php echo $txtNav[$nrow]["t6"]; ?></a></li> |

@@ -17,9 +17,30 @@
         <?php
         include('includes/header.php');
         include('includes/menu.php');
-        //ON RECUP LA TRAD DE LA PAGE
-        $qFiche = $db->query("SELECT * FROM fiches WHERE tag=\"logement\"; ");
 
+        if (!isset($_SESSION['tf'])) {  //tf : type de fiche
+            $_SESSION['tf'] = "logement";
+        }
+        if (isset($_GET['tf'])) {
+            $_SESSION['tf'] = $_GET['tf'];
+        }
+
+        $tf = $_SESSION['tf'];
+
+        //ON RECUP LES FICHES
+        $qFiche = $db->query("SELECT * FROM fiches WHERE tag=\"$tf\"; ");
+
+        //ON RECUP LA TRAD
+        $txt = $db->query("SELECT * FROM p_fiches")->fetchAll();
+
+        // choix du bon titre de la rubrique
+        if ($tf == "logement") {
+            $idTitre = 0;
+        } elseif ($tf == "restauration") {
+            $idTitre = 1;
+        } elseif ($tf == "loisirs") {
+            $idTitre = 2;
+        }
 
         // statistiques
         $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"logement\";")->fetch();
@@ -29,7 +50,7 @@
 
         <div class="left">
             <div class="box_left">
-                <div class="box_title"><?php echo 'Logements'; ?></div>
+                <div class="box_title"><?php echo $txt[$idTitre][$_SESSION["lang"]]; ?></div>
 
                 <div class="c1">
                     <br>
