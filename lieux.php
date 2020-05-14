@@ -55,10 +55,10 @@
                 <div class="c1">
                     <br>
                     <div id="lovely-things-list">
-                        <input type="text" class="search" placeholder="Chercher" />
+                        <input type="text" class="search" placeholder="Search" />
                         <ul class="sort-by">
                             <li class="sort btn" data-sort="name" style="border-radius: 10px;">Sort by name</li>
-                            <li class="sort btn" data-sort="category">Sort by category</li>
+                            <!-- <li class="sort btn" data-sort="category">Sort by category</li>-->
                         </ul>
                         <ul class="filter">
                             <li class="btn" id="filter-none">Show all</li>
