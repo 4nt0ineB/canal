@@ -1,3 +1,30 @@
+<?php
+
+    /**
+     * Minimal class autoloader
+     *
+     * @param string $class Full qualified name of the class
+     */
+    function miniAutoloader($class)
+    {
+        $class = str_replace('\\', '/', $class);
+        require __DIR__ . '/includes/' . $class . '.php';
+    }
+
+    // If the Composer autoloader exists, use it. If not, use our own as fallback.
+    $composerAutoloader = __DIR__.'/../vendor/autoload.php';
+    if (is_readable($composerAutoloader)) {
+        require $composerAutoloader;
+    } else {
+        spl_autoload_register('miniAutoloader');
+    }
+
+use Translate\Translator;
+use Translate\Exception;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -131,7 +158,22 @@
     //if the string doesn't contain any space then it will cut without word basis.
     $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
     $viewmore = $txt[13][$_SESSION["lang"]];
+
+    $lang = $_SESSION["lang"];
+    if ($lang != "fr"){ // si le site n'est pas en version française
+      try {
+                $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
+                $translator = new Translator($key);
+                $texte = html_entity_decode($string);
+                $string = $translator->translate($texte, "fr-$lang");
+
+              } catch (Exception $e) {
+                // handle exception
+      }
+    }
+
     $string .= "... <a href=\"voir_article.php?id=$id\">$viewmore</a>";
+
     }
       echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$a['titre'].'</a></b></center><hr>';
       echo '<p>'.$string.'</p></div></div>';
