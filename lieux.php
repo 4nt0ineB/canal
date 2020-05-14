@@ -31,7 +31,7 @@
         $qFiche = $db->query("SELECT * FROM fiches WHERE tag=\"$tf\"; ");
 
         //ON RECUP LA TRAD
-        $txt = $db->query("SELECT * FROM p_fiches")->fetchAll();
+        $txt = $db->query("SELECT * FROM p_lieux")->fetchAll();
 
         // choix du bon titre de la rubrique
         if ($tf == "logement") {
