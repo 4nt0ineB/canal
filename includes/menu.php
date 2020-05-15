@@ -7,14 +7,14 @@ $nrow = ($_SESSION["lang"] == "fr") ? 0 : 1; // c'est une table chelou du coup f
 <div id="navbar">
   <ul>
     <li><a href="index.php"><?php echo $txtNav[$nrow]["t1"]; ?></a></li> |
-    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t5"]; ?></a>
+    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t5"]; ?><img src="./img/down.png" style="vertical-align: middle;margin-left: 7px;margin-right: -10px;"></a>
       <div class="dropdown-content">
         <a href="histoire.php"><?php echo $txtNav[$nrow]["t4"]; ?></a>
         <a href="nature.php"><?php echo $txtNav[$nrow]["t7"]; ?></a>
       </div>
     </li> |
     <li><a href="naviguer.php"><?php echo $txtNav[$nrow]["t8"]; ?></a></li> |
-    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t9"]; ?></a>
+    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t9"]; ?><img src="./img/down.png" style="vertical-align: middle;margin-left: 7px;margin-right: -10px;"></a>
       <div class="dropdown-content">
         <a href="lieux.php?tf=logement"><?php echo $txtNav[$nrow]["t10"]; ?></a>
         <a href="lieux.php?tf=restauration"><?php echo $txtNav[$nrow]["t11"]; ?></a>
