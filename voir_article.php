@@ -106,7 +106,7 @@ use Translate\Exception;
        if($insert_comment->execute(array(':pseudo'=>$pseudo, ':comment'=>$comment, ':idarticle'=>$id))){
 
         $goodMessage="Le commentaire a été ajouté avec succès. Raffraîchissement..."; // message de succès
-        header("refresh:2; voir_article.php?id=$id");
+        header("refresh:1; voir_article.php?id=$id");
        }
       }
      }
@@ -228,7 +228,7 @@ use Translate\Exception;
         <p class="comment_section">
           <span class="comment_details"><?php echo $txt[13][$_SESSION["lang"]]; ?> <b><?php echo $results["pseudo"]; ?></b> <?php echo edit_date_format($results["date"]); ?></span>
           <br>
-          <span class="comment_content"><?php echo htmlspecialchars($results["commentaire"]); ?></span>
+          <span class="comment_content"><?php echo preg_replace('/(<br[\s]?[\/]?>[\s]*){3,}/', '<br /><br />', nl2br(htmlspecialchars($results["commentaire"]))); ?></span>
         </p>
         <?php endwhile; ?>
         <hr>
@@ -236,9 +236,13 @@ use Translate\Exception;
         <p style="margin:10px;"><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
           <form method="POST">
             <input type="text" name="pseudo" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[10][$_SESSION["lang"]]; ?>" maxlength="15">
-            <textarea name="comment" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[11][$_SESSION["lang"]]; ?>"></textarea><br>
-            <div class="g-recaptcha" data-sitekey="<?php echo CAPTCHA_KEY; ?>" style="margin:10px"></div>    
+            <textarea name="comment" maxlength="200" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[11][$_SESSION["lang"]]; ?>" onkeyup="textCounter(this,'counter',200);"></textarea><br>
+            <div class="g-recaptcha" data-theme="dark" data-sitekey="<?php echo CAPTCHA_KEY; ?>" style="margin:10px"></div>    
             <input class="bouton green" type="submit" name="submitComment" value="<?php echo $txt[12][$_SESSION["lang"]]; ?>" style="margin:10px;">
+          
+            <input type="text" disabled  maxlength="3" size="3" value="200" id="counter" style="width: 25px;">
+
+
           </form>
     </div>
 
@@ -260,5 +264,16 @@ use Translate\Exception;
 
     <div class="clear"></div>
 
-
+    <script>
+    function textCounter(field,field2,maxlimit)
+    {
+     var countfield = document.getElementById(field2);
+     if ( field.value.length > maxlimit ) {
+      field.value = field.value.substring( 0, maxlimit );
+      return false;
+     } else {
+      countfield.value = maxlimit - field.value.length;
+     }
+    }
+    </script>
     <?php include("includes/footer.php"); ?>
