@@ -63,6 +63,15 @@
           <?php echo $txt[2][$_SESSION["lang"]]; ?>
         </p>
 
+        <h2>Crédits</h2>
+        <p>Ce projet est à l'origine une idée de nos professeurs.</p>
+        <p>
+          <ul>
+            <li>ETTAYEB Tewfik</li>
+            <li>CESSY David</li>
+            <li>REBY Yann</li>
+          </ul>
+        </p>
       </div>
     </div>
     <div class="right">
