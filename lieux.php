@@ -85,6 +85,17 @@
                 <div style="clear:both;"></div>
             </div>
         </div>
+        <div class="right">
+            <br>
+            <div class="box_right">
+                <div class="box_title black"><?php echo $txt[3][$_SESSION["lang"]]; ?></div>
+                <center>
+                    <p><?php echo $txt[4][$_SESSION["lang"]]; ?></p>
+                    <div class="button-survey" style="width: 250px;"><a href="http://www.rando-marche.fr/_28246_randonnees-autour-de-toulouse" style="text-decoration: none;color:inherit;">rando-marche.fr</a></div>
+                    <div class="button-survey" style="width: 250px;"><a href="http://www.randogps.net/cherche/search.php?media_only=0&query=Canal+du+midi&search=1&type=and&db=0&prefix=0" style="text-decoration: none;color:inherit;">randogps.net</a></div>
+                </center>
+            </div>
+        </div>
 
 
 
