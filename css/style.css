@@ -16,6 +16,10 @@ body {
   background-color: #232323;
 }
 
+strong {
+  color: #b84f15;
+}
+
 #container {
   width: 1220px;
   height: auto;
@@ -208,6 +212,12 @@ body {
   border-radius: 5px;
   margin-top: 5px;
   box-shadow: 2px 2px 1px #adadad;
+}
+
+.box_left a {
+  color: #353535;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .box_title {

@@ -13,10 +13,6 @@
             width: 200px;
             height: 15px;
         }
-
-        strong {
-            color: #b84f15;
-        }
     </style>
 </head>
 

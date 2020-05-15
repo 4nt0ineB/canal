@@ -8,9 +8,9 @@
 <div class="legals">
 	<?php
          if ($_SESSION["lang"] == "en") {
-            echo "<a href=\"#\">Legal notices</a>";
+            echo "<a href=\"mentionslegales.php\">Legal notices</a>";
         } elseif ($_SESSION["lang"] == "fr") {
-            echo "<a href=\"#\">Mentions légales</a>";
+            echo "<a href=\"mentionslegales.php\">Mentions légales</a>";
         }
   ?>
 <br>

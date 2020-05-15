@@ -64,7 +64,7 @@ if (isset($_POST["recup_language"])) {
     </div>
 
   </div>
-  <div id="logo"><a href="index.php"><img src="../img/logo.png" style="width: 30%;"></a></div>
+  <div id="logo"><a href="../index.php"><img src="../img/logo.png" style="width: 30%;"></a></div>
 
   <?php
      if ($_SESSION["lang"] == "en") {

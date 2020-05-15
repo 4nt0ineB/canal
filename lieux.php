@@ -86,7 +86,6 @@
             </div>
         </div>
         <div class="right">
-            <br>
             <div class="box_right">
                 <div class="box_title black"><?php echo $txt[3][$_SESSION["lang"]]; ?></div>
                 <center>
