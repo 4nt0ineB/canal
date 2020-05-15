@@ -146,22 +146,24 @@ use Translate\Exception;
           if (isset($errorMessage)) {
             echo $txt[3][$_SESSION["lang"]];
           } else {
-            try {
-              $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
-              $translator = new Translator($key);
-              $titre = html_entity_decode(strip_tags($article["titre"], '<p><strong><hr><h2><h1><b><u><i><img>'));
-              $lang = $_SESSION["lang"];
-              $translation = $translator->translate($titre, "fr-$lang");
 
-            } catch (Exception $e) {
-              // handle exception
+            $lang = $_SESSION["lang"];
+            $titre = $article["titre"];
+
+            if ($lang != "fr"){
+                try {
+                  $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
+                  $translator = new Translator($key);
+                  $titre = html_entity_decode(strip_tags($article["titre"], '<p><strong><hr><h2><h1><b><u><i><img>'));
+                  $lang = $_SESSION["lang"];
+                  $titre = $translator->translate($titre, "fr-$lang");
+
+                } catch (Exception $e) {
+                  // handle exception
+                }
             }
 
-            if ($_SESSION["lang"] != "fr"){
-              echo $translation; 
-            } else {
-              echo $article["titre"];
-            }
+            echo $titre;
           ?>
 
           <div class="comments"><?php echo $commentaires->rowCount(); ?> <?php echo $txt[14][$_SESSION["lang"]]; ?></div>
@@ -175,7 +177,7 @@ use Translate\Exception;
           </div>
           <div class="social">
             <a class="facebook" title="Partager" target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"></a>
-            <a class="twitter" title="Tweeter" target="_blank" href="#"></a>
+            <a class="twitter" title="Tweeter" target="_blank" href="http://twitter.com/share?text=Lisez cette article sur le site du Canal du Midi: &url=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"></a>
           </div>
           <div style="clear:both;"></div>
         </div>
