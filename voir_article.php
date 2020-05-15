@@ -34,7 +34,7 @@ use Translate\Exception;
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/language.css">
   <link rel="stylesheet" href="css/slideshow.css">
-  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script> 
 </head>
 
 <body>
@@ -70,16 +70,35 @@ use Translate\Exception;
     <div class="left">
 
       <?php
+
+  
+
+
   if(isset($_REQUEST['submitComment'])) // si le formulaire est envoyé avec le bouton send
   {
+    $response = '';
+    $g_response = $_POST['g-recaptcha-response'];
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $verifyResponse = file_get_contents($url.'?secret='.CAPTCHA_SECRET_KEY.'&response='.$g_response);
     $pseudo = strip_tags($_REQUEST["pseudo"]); // on stock les variables reçues
     $comment = $_REQUEST["comment"];
      try
      {
+
+      if (empty($pseudo) || strlen($pseudo) < 3){ // si le titre est vide ou inférieur a 3 caractères
+        $errorCommentMessage[]="Merci de saisir un pseudo supérieur à 3 caractères";
+      }
+
       if (empty($comment) || strlen($comment) < 10){ // si le titre est vide ou inférieur a 3 caractères
         $errorCommentMessage[]="Merci de saisir un commentaire supérieur à 10 caractères";
       }
 
+      $response_final = json_decode($verifyResponse);
+        
+        if(!$response_final->success) {
+             $errorCommentMessage[]="Merci de valider la vérification par reCAPTCHA";
+        } 
+    
       else if(!isset($errorCommentMessage)) // si aucune erreur :
       {
        $insert_comment=$db->prepare("INSERT INTO commentaires VALUES (NULL, :pseudo, :comment, :idarticle, NOW());");   // on créer la demande dans la BDD
@@ -218,7 +237,7 @@ use Translate\Exception;
           <form method="POST">
             <input type="text" name="pseudo" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[10][$_SESSION["lang"]]; ?>" maxlength="15">
             <textarea name="comment" style="width: 100%;box-sizing: border-box;margin-bottom:7px;max-width: 850px;" placeholder="<?php echo $txt[11][$_SESSION["lang"]]; ?>"></textarea><br>
-
+            <div class="g-recaptcha" data-sitekey="<?php echo CAPTCHA_KEY; ?>" style="margin:10px"></div>    
             <input class="bouton green" type="submit" name="submitComment" value="<?php echo $txt[12][$_SESSION["lang"]]; ?>" style="margin:10px;">
           </form>
     </div>

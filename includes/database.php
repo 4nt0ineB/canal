@@ -6,6 +6,9 @@ define('DB_NAME', 'canal');
 define('USER', 'debian2');
 define('PASS', 'zibaldone52');
 
+define('CAPTCHA_KEY',"6Lcvb_cUAAAAACt0_rt2evFprt8vnZNBscLnQXWX"); 
+define('CAPTCHA_SECRET_KEY',"6Lcvb_cUAAAAAM-JVO2wuSokTHB_0IciuNWU6dWa");
+
 try {
     $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
     $db->exec("set names utf8");
