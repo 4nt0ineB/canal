@@ -48,6 +48,7 @@ use Translate\Exception;
     $contenuArticle = $db->query("SELECT * FROM p_article");
     $txt = $contenuArticle->fetchAll();
     $commentaires = $db->query("SELECT * FROM commentaires WHERE idArticle=$id;");
+    $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
     // statistiques
     $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"voir_article\";")->fetch();
     $count = $query_count["compteur"];
