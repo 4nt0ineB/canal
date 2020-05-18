@@ -57,8 +57,58 @@
       }
     </script>
 
-<div id="piechart" style="width: 100%; height: 400px;"></div>
+    <div id="piechart" style="width: 100%; height: 400px;"></div>
 
+    <hr>
+
+    <h2>Statistiques des visites</h2>
+
+    <p><u>Nombre de visiteurs aujourd'hui :</u> 
+    <?php 
+
+    $visiteurs = $db->query("SELECT * FROM visiteurs");
+
+    $aujourdhui = new DateTime("today"); 
+    $count = 0;
+
+    while ($results = $visiteurs->fetch()){
+      $date = $results["lastLogin"];
+      $DateVisite = new DateTime($date); //2016-10-27
+
+      if ($aujourdhui <= $DateVisite){
+        $count++;
+      }
+    }
+
+    echo $count;echo' visites';
+    ?>
+
+<br>
+    <u>Nombre de consultations depuis la création du site :</u> 
+    <?php 
+
+    $visiteurs = $db->query("SELECT * FROM visiteurs");
+    $count = 0;
+
+    while ($results = $visiteurs->fetch()){
+        $count+=$results["compteur"]; 
+    }
+
+    echo $count;echo' visites';
+    ?>
+
+<br>
+    <u>Nombre de visiteurs différents depuis la création du site :</u> 
+    <?php 
+
+    $visiteurs = $db->query("SELECT * FROM visiteurs");
+
+    echo $visiteurs->rowCount();echo' visiteurs';
+    ?>
+
+
+
+    </p>
       </div>
 </div>
      <?php include("includes/aside.php"); ?>
