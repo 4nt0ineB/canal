@@ -23,6 +23,7 @@ $nrow = ($_SESSION["lang"] == "fr") ? 0 : 1; // c'est une table chelou du coup f
     </li> |
     <li><a href="#"><?php echo $txtNav[$nrow]["t6"]; ?></a></li> |
     <li><a href="articles.php"><?php echo $txtNav[$nrow]["t2"]; ?></a></li> |
-    <li><a href="quisommesnous.php"><?php echo $txtNav[$nrow]["t3"]; ?></a></li>
+    <li><a href="quisommesnous.php"><?php echo $txtNav[$nrow]["t3"]; ?></a></li> |
+    <li><a href="galerie.php"><?php echo $txtNav[$nrow]["t13"]; ?></a></li>
   </ul>
 </div>

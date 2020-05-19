@@ -70,6 +70,10 @@
     font-size: 0.8em;
 }
 
+.caption p{
+    text-align: initial;
+}
+
 .opacity-low {
     opacity: 0.5;
 }
