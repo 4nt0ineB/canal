@@ -2,8 +2,13 @@
 
 $contNavbar = $db->query("SELECT * FROM navbar");
 $txtNav = $contNavbar->fetchAll();
-$nrow = ($_SESSION["lang"] == "fr") ? 0 : 1; // c'est une table chelou du coup faut connaître les id
-
+if ($_SESSION["lang"] == "fr"){
+  $nrow = 0;
+} else if($_SESSION["lang"] == "en"){
+  $nrow = 1;
+} else if($_SESSION["lang"] == "es"){
+  $nrow = 2;
+}
 if (isset($_SESSION["admin"])){
 ?>
 

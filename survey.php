@@ -37,19 +37,11 @@
 
         <div class="right">
             <div class="box_right">
-                <div class="box_title black"><?php echo $txt[1][$_SESSION["lang"]]; ?></div>
-                <?php
-                $json = file_get_contents('https://www.prevision-meteo.ch/services/json/toulouse');
-                $json = json_decode($json);
-                ?>
+                
                 <center>
-                    <h3><?php echo $txt[2][$_SESSION["lang"]]; ?><u><?php echo $json->city_info->name; ?></u></h3>
+                    <h3><?php echo $txt[2][$_SESSION["lang"]]; ?><u>Toulouse</u></h3>
                     <ul style="list-style: none;margin-block-start: 0;padding-inline-start: 0;">
-                        <li><span><?php echo $json->fcst_day_0->day_short; ?> (<FONT color="blue"><?php echo $json->fcst_day_0->tmin; ?>°C</FONT> / <FONT color="red"><?php echo $json->fcst_day_0->tmax; ?>°C</FONT>)</span><br><small style="vertical-align: 10px;"><?php echo $json->fcst_day_0->condition; ?> </small><img src="<?php echo $json->fcst_day_0->icon; ?>" width="32" height="32" /></li>
-                        <hr>
-                        <li><span><?php echo $json->fcst_day_1->day_short; ?> (<FONT color="blue"><?php echo $json->fcst_day_1->tmin; ?>°C</FONT> / <FONT color="red"><?php echo $json->fcst_day_1->tmax; ?>°C</FONT>)</span><br><small style="vertical-align: 10px;"><?php echo $json->fcst_day_1->condition; ?> </small><img src="<?php echo $json->fcst_day_1->icon; ?>" width="32" height="32" /></li>
-                        <hr>
-                        <li><span><?php echo $json->fcst_day_2->day_short; ?> (<FONT color="blue"><?php echo $json->fcst_day_2->tmin; ?>°C</FONT> / <FONT color="red"><?php echo $json->fcst_day_2->tmax; ?>°C</FONT>)</span><br><small style="vertical-align: 10px;"><?php echo $json->fcst_day_2->condition; ?> </small><img src="<?php echo $json->fcst_day_2->icon; ?>" width="32" height="32" /></li>
+                        <li><?php include("includes/meteo.php"); ?></li>
                     </ul>
                 </center>
             </div>

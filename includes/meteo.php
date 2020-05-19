@@ -42,10 +42,34 @@ echo '(<FONT color="blue">'.$weather->temperature->min.'</FONT>';
 echo ' / <FONT color="red">'.$weather->temperature->max.'</FONT>)';
 echo $lf.'<hr>';
 
-echo '<b><u>'.$txt[14][$_SESSION["lang"]].' :</b></u> '; echo $weather->pressure;
+echo '<b><u>';
+if ($_SESSION["lang"] == "fr"){
+          echo "Pression";
+         } else if ($_SESSION["lang"] == "en"){
+          echo "Pressure";
+         } else if ($_SESSION["lang"] == "es"){
+          echo "Presiona";
+         }
+echo' :</b></u> '; echo $weather->pressure;
 echo $lf;
-echo '<b><u>'.$txt[15][$_SESSION["lang"]].' :</b></u> '; echo $weather->humidity;
+echo '<b><u>';
+if ($_SESSION["lang"] == "fr"){
+          echo "Humidité";
+         } else if ($_SESSION["lang"] == "en"){
+          echo "Humidity";
+         } else if ($_SESSION["lang"] == "es"){
+          echo "Humedad";
+         }
+echo' :</b></u> '; echo $weather->humidity;
 echo $lf;
-echo '<b><u>'.$txt[16][$_SESSION["lang"]].' :</b></u> '; echo $weather->wind->speed;
+echo '<b><u>';
+if ($_SESSION["lang"] == "fr"){
+          echo "Vent";
+         } else if ($_SESSION["lang"] == "en"){
+          echo "Wind";
+         } else if ($_SESSION["lang"] == "es"){
+          echo "Viento";
+         }
+echo ' :</b></u> '; echo $weather->wind->speed;
 
 ?>

@@ -11,6 +11,8 @@
             echo "<a href=\"../mentionslegales.php\">Legal notices</a>";
         } elseif ($_SESSION["lang"] == "fr") {
             echo "<a href=\"../mentionslegales.php\">Mentions légales</a>";
+        } elseif ($_SESSION["lang"] == "es") {
+            echo "<a href=\"../mentionslegales.php\">Aviso legal</a>";
         }
   ?>
 <br>
@@ -19,6 +21,8 @@
               echo "<a href=\"index.php\">Admin panel</a>";
           } elseif ($_SESSION["lang"] == "fr") {
               echo "<a href=\"index.php\">Panel administrateur</a>";
+          } elseif ($_SESSION["lang"] == "es") {
+              echo "<a href=\"index.php\">Panel de administración</a>";
           }
     ?>
 	

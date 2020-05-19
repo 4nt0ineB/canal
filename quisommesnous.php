@@ -63,8 +63,8 @@
           <?php echo $txt[2][$_SESSION["lang"]]; ?>
         </p>
 
-        <h2>Crédits</h2>
-        <p>Ce projet est à l'origine une idée de nos professeurs.</p>
+        <h2><?php echo $txt[8][$_SESSION["lang"]]; ?></h2>
+        <p><?php echo $txt[9][$_SESSION["lang"]]; ?></p>
         <p>
           <ul>
             <li>ETTAYEB Tewfik</li>

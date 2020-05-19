@@ -32,6 +32,8 @@ if (isset($_POST["recup_language"])) {
             echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Search...\">";
         } elseif ($_SESSION["lang"] == "fr") {
             echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Recherche...\">";
+        } elseif ($_SESSION["lang"] == "es") {
+            echo "<input type=\"text\" id=\"searchbar\" name=\"search\" minlength=\"4\" size=\"10\" placeholder=\"Busca en...\">";
         }
       ?>
       <input type="image" src="./img/loupe.png" style="position: relative;top: 3px;left: -30px;">
@@ -64,6 +66,8 @@ if (isset($_POST["recup_language"])) {
         echo "<div id=\"slug\">World Heritage of Humanity</div>";
     } elseif ($_SESSION["lang"] == "fr") {
         echo "<div id=\"slug\">Patrimoine Mondial de l'Humanité</div>";
+    } elseif ($_SESSION["lang"] == "es") {
+        echo "<div id=\"slug\">Patrimonio Mundial de la Humanidad</div>";
     }
   ?>
 
