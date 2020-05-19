@@ -15,9 +15,9 @@ $("#filter-velo").click(function () {
   return false;
 });
 
-$("#filter-maison d'hôte").click(function () {
+$("#filter-chambres d'hôtes").click(function () {
   featureList.filter(function (item) {
-    if (item.values().category == "maison d'hôte") {
+    if (item.values().category == "chambres d'hôtes") {
       return true;
     } else {
       return false;

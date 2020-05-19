@@ -63,7 +63,7 @@
                 <div class="c1">
                     <br>
                     <div id="lovely-things-list">
-                        <input type="text" class="search" placeholder="Search" />
+                        <input type="text" class="search" placeholder="Search">
                         <ul class="sort-by">
                             <li class="sort btn" data-sort="name" style="border-radius: 10px;"><?php if ($_SESSION['lang'] == "en") {
                                                                                                     echo 'Sort by name';
@@ -77,8 +77,9 @@
                                                                     echo 'Show all';
                                                                 } elseif ($_SESSION['lang'] == "fr") {
                                                                     echo 'Tout';
-                                                                } ?></li>
+                                                                } ?>
                             </li>
+
                             <?php
                             while ($t = $tradTag->fetch()) {
                                 echo '<li class="btn" id="filter-' . $t['fr'] . '">' . $t[$_SESSION['lang']] . '</li>';
