@@ -51,9 +51,9 @@
         }
 
         // statistiques
-        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"logement\";")->fetch();
+        $query_count = $db->query("SELECT compteur FROM stats WHERE page=\"lieux\";")->fetch();
         $count = $query_count["compteur"];
-        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"logement\";");
+        $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"lieux\";");
         ?>
 
         <div class="left">
