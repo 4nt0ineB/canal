@@ -4,9 +4,9 @@ var options = {
 
 var featureList = new List('lovely-things-list', options);
 
-$('#filter-games').click(function () {
+$('#filter-velo').click(function () {
     featureList.filter(function (item) {
-        if (item.values().category == "Game") {
+        if (item.values().category == "velo") {
             return true;
         } else {
             return false;
@@ -26,9 +26,20 @@ $('#filter-kayak').click(function () {
     return false;
 });
 
-$('#filter-kayak').click(function () {
+$('#filter-croisiere').click(function () {
     featureList.filter(function (item) {
-        if (item.values().category == "kayak") {
+        if (item.values().category == "croisiere") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return false;
+});
+
+$('#filter-bateau').click(function () {
+    featureList.filter(function (item) {
+        if (item.values().category == "bateau") {
             return true;
         } else {
             return false;
