@@ -42,13 +42,13 @@
                     $errorRequestMessage[] = "Merci de saisir un article valide";
                 } else if (!isset($errorRequestMessage)) // si aucune erreur :
                 {
-                    $insert_request = $db->prepare("INSERT INTO fiches VALUES (DEFAULT, :miniature, :titre, :adresse, :code_postal, :localite, :description, :tag, NULL);");   // on créer la demande dans la BDD
+                    $insert_request = $db->prepare("INSERT INTO fiches VALUES (DEFAULT, :miniature, :titre, :adresse, :code_postal, :localite, :description, :tag, :tag2);");   // on créer la demande dans la BDD
 
                     if ($insert_request->execute(array(
                         'miniature' => $mini,
                         'titre' => strip_tags($title), 'adresse' => strip_tags($adresse),
                         'code_postal' => strip_tags($code_postal), 'localite' => strip_tags($localite),
-                        'description' => $content, 'tag' => strip_tags($tag)
+                        'description' => $content, 'tag' => strip_tags($tag), 'tag2' => strip_tags($tag2)
                     ))) {
 
                         $goodRequestMessage = "L'article a été créé avec succès. Redirection..."; // message de succès
@@ -96,7 +96,7 @@
                                 echo '<option value="' . $t['fr'] . '">' . $t['fr'] . '</option>';
                             }
                             ?>
-                        </select> <label><u>Tag2 :</u></label> <select type="text" name="tag" required>
+                        </select> <label><u>Tag2 :</u></label> <select type="text" name="tag2" required>
                             <option>Choisir un tag</option>
                             <?php
                             $dispoTag = $db->query("SELECT * FROM tags WHERE type!=\"categorie\";");
