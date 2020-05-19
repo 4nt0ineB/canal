@@ -70,6 +70,36 @@
             ?>
           </center>
         </div>
+
+        <br>
+
+              <div class="box_right">
+        <div class="box_title black"><?php 
+        if ($_SESSION["lang"] == "fr"){
+          echo "Une image de notre galerie";
+         } else if ($_SESSION["lang"] == "en"){
+          echo "An image from our gallery";
+         } else if ($_SESSION["lang"] == "es"){
+          echo "Una imagen de nuestra galería";
+         }
+         ?></div>
+      
+
+        <center>
+          <iframe src="includes/iframe_galerie.php" scrolling="no" frameborder="0" ></iframe>
+          <hr>
+          <a href="galerie.php">
+          <?php 
+          if ($_SESSION["lang"] == "fr"){
+            echo "Voir notre galerie";
+           } else if ($_SESSION["lang"] == "en"){
+            echo "See our gallery";
+           } else if ($_SESSION["lang"] == "es"){
+            echo "Vea nuestra galería";
+           }
+           ?></a>
+        </center>
+      </div>
       </div>
 
 

@@ -37,7 +37,6 @@ if (isset($_SESSION["admin"])){
         <a href="../lieux.php?tf=loisir"><?php echo $txtNav[$nrow]["t12"]; ?></a>
       </div>
     </li> |
-    <li><a href="#"><?php echo $txtNav[$nrow]["t6"]; ?></a></li> |
     <li><a href="../articles.php"><?php echo $txtNav[$nrow]["t2"]; ?></a></li> |
     <li><a href="../quisommesnous.php"><?php echo $txtNav[$nrow]["t3"]; ?></a></li> |
     <li><a href="../galerie.php"><?php echo $txtNav[$nrow]["t13"]; ?></a></li>
