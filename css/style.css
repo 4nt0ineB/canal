@@ -345,6 +345,29 @@ footer .legals a {
   color: white;
 }
 
+.button-survey.gradientop{
+	background: -webkit-linear-gradient(70deg , rgb(230, 92, 92) 0% , rgb(151, 65, 236) 100% );
+	border: 2px solid #000000;
+	color: #fff;
+	text-shadow: 1px 1px black;
+}
+
+.button-survey.gradientbg{
+	background: -webkit-linear-gradient(70deg , rgb(92, 133, 230) 0% , rgb(83, 236, 65) 100% );
+	border: 2px solid #000000;
+	color: #fff;
+	text-shadow: 1px 1px black;
+}
+
+.button-survey.gradientoy{
+	background: -webkit-linear-gradient(70deg , rgb(230, 138, 92) 0% , rgb(236, 231, 65) 100% );
+	border: 2px solid #000000;
+	color: #fff;
+	text-shadow: 1px 1px black;
+}
+
+
+
 .menu_wrapper {
     height: auto;
     background-color: #585858;
