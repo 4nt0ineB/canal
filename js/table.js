@@ -26,6 +26,17 @@ $('#filter-kayak').click(function () {
     return false;
 });
 
+$('#filter-kayak').click(function () {
+    featureList.filter(function (item) {
+        if (item.values().category == "kayak") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return false;
+});
+
 
 
 $('#filter-none').click(function () {

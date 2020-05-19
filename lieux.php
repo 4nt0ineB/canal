@@ -81,7 +81,7 @@
                             </li>
                             <?php
                             while ($t = $tradTag->fetch()) {
-                                echo '<li class="btn" id="filter-' . $t[$_SESSION['lang']] . '">' . $t[$_SESSION['lang']] . '</li>';
+                                echo '<li class="btn" id="filter-' . $t['fr'] . '">' . $t[$_SESSION['lang']] . '</li>';
                             }
 
                             ?>
