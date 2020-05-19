@@ -21,25 +21,26 @@ if (isset($_SESSION["admin"])){
   ?>
 
 <div id="navbar">
-  <ul>
+<ul>
     <li><a href="../index.php"><?php echo $txtNav[$nrow]["t1"]; ?></a></li> |
-    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t5"]; ?></a>
+    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t5"]; ?><img src="../img/down.png" style="vertical-align: middle;margin-left: 7px;margin-right: -10px;"></a>
       <div class="dropdown-content">
         <a href="../histoire.php"><?php echo $txtNav[$nrow]["t4"]; ?></a>
         <a href="../nature.php"><?php echo $txtNav[$nrow]["t7"]; ?></a>
       </div>
     </li> |
     <li><a href="../naviguer.php"><?php echo $txtNav[$nrow]["t8"]; ?></a></li> |
-    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t9"]; ?></a>
+    <li class="rubrique-drop"><a href="#"><?php echo $txtNav[$nrow]["t9"]; ?><img src="../img/down.png" style="vertical-align: middle;margin-left: 7px;margin-right: -10px;"></a>
       <div class="dropdown-content">
-        <a href="../logement.php"><?php echo $txtNav[$nrow]["t10"]; ?></a>
-        <a href="#"><?php echo $txtNav[$nrow]["t11"]; ?></a>
-        <a href="#"><?php echo $txtNav[$nrow]["t12"]; ?></a>
+        <a href="../lieux.php?tf=logement"><?php echo $txtNav[$nrow]["t10"]; ?></a>
+        <a href="../lieux.php?tf=restauration"><?php echo $txtNav[$nrow]["t11"]; ?></a>
+        <a href="../lieux.php?tf=loisir"><?php echo $txtNav[$nrow]["t12"]; ?></a>
       </div>
     </li> |
     <li><a href="#"><?php echo $txtNav[$nrow]["t6"]; ?></a></li> |
     <li><a href="../articles.php"><?php echo $txtNav[$nrow]["t2"]; ?></a></li> |
-    <li><a href="../quisommesnous.php"><?php echo $txtNav[$nrow]["t3"]; ?></a></li>
+    <li><a href="../quisommesnous.php"><?php echo $txtNav[$nrow]["t3"]; ?></a></li> |
+    <li><a href="../galerie.php"><?php echo $txtNav[$nrow]["t13"]; ?></a></li>
   </ul>
 </div>
 
