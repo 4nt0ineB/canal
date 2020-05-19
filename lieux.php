@@ -38,8 +38,8 @@
         //ON RECUP LA TRAD
         $txt = $db->query("SELECT * FROM p_lieux")->fetchAll();
 
-        //ON RECUP LES TAGS 2
-        $tag2 = $db->query("SELECT tag2 FROM fiches WHERE tag2!=\"\"");
+        //ON RECUP LA TRAD DES TAGS
+        $tradTag = $db->query("SELECT * FROM tags WHERE type=\"$tf\";");
 
         // choix du bon titre de la rubrique
         if ($tf == "logement") {
@@ -65,14 +65,23 @@
                     <div id="lovely-things-list">
                         <input type="text" class="search" placeholder="Search" />
                         <ul class="sort-by">
-                            <li class="sort btn" data-sort="name" style="border-radius: 10px;">Sort by name</li>
+                            <li class="sort btn" data-sort="name" style="border-radius: 10px;"><?php if ($_SESSION['lang'] == "en") {
+                                                                                                    echo 'Sort by name';
+                                                                                                } elseif ($_SESSION['lang'] == "fr") {
+                                                                                                    echo 'Trier par nom';
+                                                                                                } ?></li>
                             <!-- <li class="sort btn" data-sort="category">Sort by category</li>-->
                         </ul>
                         <ul class="filter">
-                            <li class="btn" id="filter-none">Show all</li>
+                            <li class="btn" id="filter-none"><?php if ($_SESSION['lang'] == "en") {
+                                                                    echo 'Show all';
+                                                                } elseif ($_SESSION['lang'] == "fr") {
+                                                                    echo 'Tout';
+                                                                } ?></li>
+                            </li>
                             <?php
-                            while ($t = $tag2->fetch()) {
-                                echo '<li class="btn" id="filter-' . $t['tag2'] . '">' . $t['tag2'] . '</li>';
+                            while ($t = $tradTag->fetch()) {
+                                echo '<li class="btn" id="filter-' . $t[$_SESSION['lang']] . '">' . $t[$_SESSION['lang']] . '</li>';
                             }
 
                             ?>

@@ -88,11 +88,22 @@
                     <p>
                         <label><u>Titre :</u></label><input type="text" name="title" placeholder="Titre de l'article" required><br>
                         <label><u>Miniature :</u></label><input type="text" name="mini" placeholder="Lien de la miniature" required><br>
-                        <label><u>Tag :</u></label> <select type="text" name="tag" required>
+                        <label><u>Tag1 :</u></label> <select type="text" name="tag" required>
                             <option>Choisir un tag</option>
-                            <option value="logement">Logement</option>
-                            <option value="restauration">Restauration</option>
-                            <option value="loisir">Loisir</option>
+                            <?php
+                            $dispoTag = $db->query("SELECT * FROM tags WHERE type=\"categorie\";");
+                            while ($t = $dispoTag->fetch()) {
+                                echo '<option value="' . $t['fr'] . '">' . $t['fr'] . '</option>';
+                            }
+                            ?>
+                        </select> <label><u>Tag2 :</u></label> <select type="text" name="tag" required>
+                            <option>Choisir un tag</option>
+                            <?php
+                            $dispoTag = $db->query("SELECT * FROM tags WHERE type!=\"categorie\";");
+                            while ($t = $dispoTag->fetch()) {
+                                echo '<option value="' . $t['fr'] . '">' . $t['fr'] . '</option>';
+                            }
+                            ?>
                         </select><br>
                         <label><u>Adresse :</u></label><input type="text" name="adresse" placeholder="Adresse du lieu" required><br>
                         <label><u>Code Postal :</u></label><input type="text" name="code_postal" placeholder="Code postal du lieu" required><br>
