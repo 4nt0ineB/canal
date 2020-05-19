@@ -24,7 +24,9 @@
 	  } 
 
     $date = date('Y-m-d H:i:s');
-	?>
+
+    $categories = $db->query("SELECT * FROM articles_categories;");
+    ?>
 
 
   <?php
@@ -33,6 +35,7 @@
     $auteur = strip_tags($row["login"]); // on stock les variables reçues
     $titre = strip_tags($_REQUEST["title"]);
     $contenu = $_REQUEST["content"];
+    $categorie = $_REQUEST["categorie"];
      try
      {
       if (empty($titre) || strlen($titre) < 3){ // si le titre est vide ou inférieur a 3 caractères
@@ -45,9 +48,9 @@
 
       else if(!isset($errorRequestMessage)) // si aucune erreur :
       {
-       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW());");   // on créer la demande dans la BDD
+       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW(), :categorie);");   // on créer la demande dans la BDD
 
-       if($insert_request->execute(array(':titre'=>$titre, ':auteur'=>$auteur, ':contenu'=>$contenu))){
+       if($insert_request->execute(array(':titre'=>$titre, ':auteur'=>$auteur, ':contenu'=>$contenu, ':categorie'=>$categorie))){
 
         $goodRequestMessage="L'article a été créé avec succès. Redirection..."; // message de succès
         header("refresh:1; index.php");
@@ -92,7 +95,21 @@
         <label><u>Auteur :</u></label><input type="text" name="author" value="<?php echo $row["login"]; ?>" readonly="readonly"><br>
         <label><u>Date :</u></label><input type="text" name="date" value="<?php echo $date; ?>" readonly="readonly"><br>
         <label><u>Titre :</u></label><input type="text" name="title" placeholder="Titre de l'article"><br>
+
+        <label><u>Catégorie de l'article :</u></label>
+
+		<select name="categorie" style="border-radius: 3px;background-color: #fff;padding: 7px;margin: 10px;outline: none;font-family: &quot;Dyno&quot;;font-size: 15px;border: 1px solid #b5bac3;">
+		    <option selected disabled>Catégorie</option>
+
+		     <?php while ($results = $categories->fetch()) : ?>
+		    <option value="<?php echo $results["nom"]; ?>"><?php echo $results["nom"]; ?></option>
+		    <?php endwhile; ?>
+		</select>
+		<br>
+
         <label><u>Contenu :</u></label>
+
+
 
         <textarea name="content"></textarea>
         <script>

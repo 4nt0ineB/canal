@@ -150,6 +150,9 @@ use Translate\Exception;
 
             $lang = $_SESSION["lang"];
             $titre = $article["titre"];
+            $categorie = $db->query("SELECT categorie FROM articles WHERE id=$id;")->fetch();
+            $result_categ = $categorie["categorie"];
+            $categorie_label = $db->query("SELECT $lang FROM articles_categories WHERE fr=\"$result_categ\";")->fetch();
 
             if ($lang != "fr"){
                 try {
@@ -174,7 +177,7 @@ use Translate\Exception;
 
           <div class="text">
             <?php echo $txt[4][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($article["date"]); ?></b><br>
-            <i><?php echo $txt[5][$_SESSION["lang"]]; ?> : <?php echo $txt[7][$_SESSION["lang"]]; ?></i>
+            <i><?php echo $txt[5][$_SESSION["lang"]]; ?> : <?php echo $categorie_label["$lang"]; ?></i>
           </div>
           <div class="social">
             <a class="facebook" title="Partager" target="_blank" href="https://www.facebook.com/sharer.php?u=<?php echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>"></a>
