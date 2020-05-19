@@ -42,7 +42,7 @@
                     $errorRequestMessage[] = "Merci de saisir un article valide";
                 } else if (!isset($errorRequestMessage)) // si aucune erreur :
                 {
-                    $insert_request = $db->prepare("INSERT INTO fiches VALUES (DEFAULT, :miniature, :titre, :adresse, :code_postal, :localite, :description, :tag);");   // on créer la demande dans la BDD
+                    $insert_request = $db->prepare("INSERT INTO fiches VALUES (DEFAULT, :miniature, :titre, :adresse, :code_postal, :localite, :description, :tag, NULL);");   // on créer la demande dans la BDD
 
                     if ($insert_request->execute(array(
                         'miniature' => $mini,

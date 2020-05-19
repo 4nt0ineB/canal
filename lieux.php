@@ -9,6 +9,11 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
 
     <link rel="stylesheet" href="css/table.css">
+    <style>
+        .category {
+            visibility: hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,12 +38,15 @@
         //ON RECUP LA TRAD
         $txt = $db->query("SELECT * FROM p_lieux")->fetchAll();
 
+        //ON RECUP LES TAGS 2
+        $tag2 = $db->query("SELECT tag2 FROM fiches WHERE tag2!=\"\"");
+
         // choix du bon titre de la rubrique
         if ($tf == "logement") {
             $idTitre = 0;
         } elseif ($tf == "restauration") {
             $idTitre = 1;
-        } elseif ($tf == "loisirs") {
+        } elseif ($tf == "loisir") {
             $idTitre = 2;
         }
 
@@ -62,17 +70,21 @@
                         </ul>
                         <ul class="filter">
                             <li class="btn" id="filter-none">Show all</li>
-                            <!--
-                            <li class="btn" id="filter-games">Only show games</li>
-                            <li class="btn" id="filter-beverages">Only show beverages</li> 
-                        -->
+                            <?php
+                            while ($t = $tag2->fetch()) {
+                                echo '<li class="btn" id="filter-' . $t['tag2'] . '">' . $t['tag2'] . '</li>';
+                            }
+
+                            ?>
+
                         </ul>
                         <ul class="list">
                             <?php while ($f = $qFiche->fetch()) {
                                 //on utilisera le <a></a> pour faire passer en post l'id de la fiche de laquelle on souhaite voir sa description
                                 echo '<li>
                                     <img src="' . $f['miniature'] . '"class="thumb">
-                                    <a href="fiche.php?id=' . $f['id'] . '"><h4><span  class="name">' . $f['titre'] . '</span> <span class="category">' . $f["tag"] . '</span></h4></a>
+                                    <a href="fiche.php?id=' . $f['id'] . '"><h4><span  class="name">' . $f['titre'] . '</span> <span class="category">' . $f["tag2"] . '</span></h4></a>
+
                                     <p class="description">' . $f["adresse"] . '<br>' . $f["code_postal"] . ' ' . $f["localite"] . '</p>
                                     </li>';
                             }

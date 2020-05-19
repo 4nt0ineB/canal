@@ -15,9 +15,9 @@ $('#filter-games').click(function () {
     return false;
 });
 
-$('#filter-beverages').click(function () {
+$('#filter-kayak').click(function () {
     featureList.filter(function (item) {
-        if (item.values().category == "Beverage") {
+        if (item.values().category == "kayak") {
             return true;
         } else {
             return false;
@@ -25,6 +25,9 @@ $('#filter-beverages').click(function () {
     });
     return false;
 });
+
+
+
 $('#filter-none').click(function () {
     featureList.filter();
     return false;
