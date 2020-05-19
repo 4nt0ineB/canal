@@ -98,7 +98,7 @@
 
         <label><u>Catégorie de l'article :</u></label>
 
-		<select name="categorie" style="border-radius: 3px;background-color: #fff;padding: 7px;margin: 10px;outline: none;font-family: &quot;Dyno&quot;;font-size: 15px;border: 1px solid #b5bac3;">
+		<select name="categorie">
 		    <option selected disabled>Catégorie</option>
 
 		     <?php while ($results = $categories->fetch()) : ?>
