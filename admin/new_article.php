@@ -102,7 +102,7 @@
 		    <option selected disabled>Catégorie</option>
 
 		     <?php while ($results = $categories->fetch()) : ?>
-		    <option value="<?php echo $results["nom"]; ?>"><?php echo $results["nom"]; ?></option>
+		    <option value="<?php echo $results["fr"]; ?>"><?php echo $results["fr"]; ?></option>
 		    <?php endwhile; ?>
 		</select>
 		<br>

@@ -40,7 +40,7 @@
 	}
 
 	$article_results = $article->fetch();
-
+  $categories = $db->query("SELECT * FROM articles_categories;");
 	?>
 
 	<div class="left">
@@ -52,6 +52,7 @@
   {
     $titre = strip_tags($_REQUEST["title"]);
     $contenu = str_replace('"','\"',$_REQUEST["content"]);
+    $categorie = $_REQUEST["categorie"];
      try
      {
       if (empty($titre) || strlen($titre) < 3){ // si le titre est vide ou inférieur a 3 caractères
@@ -64,7 +65,7 @@
 
       else if(!isset($errorRequestMessage)) // si aucune erreur :
       {
-       $db->query("UPDATE articles SET titre=\"$titre\", contenu=\"$contenu\" WHERE id=$id;");   // on créer la demande dans la BDD
+       $db->query("UPDATE articles SET titre=\"$titre\", contenu=\"$contenu\", categorie=\"$categorie\" WHERE id=$id;");   // on créer la demande dans la BDD
        $goodRequestMessage="L'article a été édité avec succès. Redirection..."; // message de succès
        header("refresh:1; index.php");
        
@@ -102,6 +103,17 @@
         <label><u>Auteur :</u></label><input type="text" name="author" value="<?php echo $article_results["auteur"]; ?>" readonly="readonly"><br>
         <label><u>Date :</u></label><input type="text" name="date" value="<?php echo $article_results["date"]; ?>" readonly="readonly"><br>
         <label><u>Titre :</u></label><input type="text" name="title" value="<?php echo $article_results["titre"]; ?>"><br>
+        <label><u>Catégorie de l'article :</u></label>
+
+        <select name="categorie">
+            <option selected disabled><?php echo $article_results["categorie"]; ?></option>
+
+             <?php while ($results = $categories->fetch()) : ?>
+            <option value="<?php echo $results["fr"]; ?>"><?php echo $results["fr"]; ?></option>
+            <?php endwhile; ?>
+        </select>
+        <br>
+
         <label><u>Contenu :</u></label>
 
         <textarea name="content"><?php echo $article_results["contenu"]; ?></textarea>
