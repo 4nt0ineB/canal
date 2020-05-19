@@ -156,7 +156,7 @@ use Translate\Exception;
 
             if ($lang != "fr"){
                 try {
-                  $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
+                  $key = KEY_TRANSLATION;
                   $translator = new Translator($key);
                   $titre = html_entity_decode(strip_tags($article["titre"], '<p><strong><hr><h2><h1><b><u><i><img>'));
                   $lang = $_SESSION["lang"];

@@ -164,7 +164,7 @@ use Translate\Exception;
 
     if ($lang != "fr"){ // si le site n'est pas en version française
       try {
-                $key = "trnsl.1.1.20200513T201756Z.6896cddb8b6c8f22.2a79ad549df8ea96e738d19df21f8e7eba76a715";
+                $key = KEY_TRANSLATION;
                 $translator = new Translator($key);
                 $texte = html_entity_decode($string);
                 $string = $translator->translate($texte, "fr-$lang");
