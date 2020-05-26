@@ -313,6 +313,7 @@ footer img {
 }
 
 footer .legals {
+    text-align: right;
     float: right;
     margin-top: 20px;
     line-height: 1.5;
