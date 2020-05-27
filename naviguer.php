@@ -62,7 +62,7 @@
 
                         </li>&nbsp;|&nbsp;
 
-                        <li class="rubrique-drop"><a href="passageecluse"><?php echo $txt[21][$_SESSION["lang"]]; ?></a>
+                        <li class="rubrique-drop"><a href="#passageecluse"><?php echo $txt[21][$_SESSION["lang"]]; ?></a>
                             <div class="dropdown-content">
                                 <a href="#prioritepassage"><?php echo $txt[22][$_SESSION["lang"]]; ?></a>
                                 <a href="#eclusesautomatisees"><?php echo $txt[23][$_SESSION["lang"]]; ?></a>
