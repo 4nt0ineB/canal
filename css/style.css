@@ -246,7 +246,7 @@ hr {
   line-height: 30px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
   box-sizing: border-box;
   padding-left: 5px;
   position: relative;
