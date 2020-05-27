@@ -1,10 +1,10 @@
 <footer>
-<a href="http://www.u-pem.fr" target="_blank"><img src="img/upem.png" alt="Logo UPEM"></a>
 <a href="https://www.univ-gustave-eiffel.fr/" target="_blank"><img src="img/logo_univ_gustave_eiffel_blanc_rvb.png" alt="Logo Université Gustave Eiffel"></a>
 <img src="img/mcn.png" alt="Logo MCN">
 <a href="https://whc.unesco.org/fr/list/" target="_blank"><img src="img/unesco.png" alt="Logo UNESCO"></a>
-<img src="img/forumunesco.png" alt="Logo FORUM UNESCO">
-
+<a href="https://fr.unesco.org/forum" target="_blank"><img src="img/forumunesco.png" alt="Logo FORUM UNESCO"></a>
+<a href="https://anr.fr/" target="_blank"><img src="img/anr.png"></a>
+<a href="https://www.icomos.org/" target="_blank"><img src="img/icomos.png"></a>
 <div class="legals">
 	<?php
          if ($_SESSION["lang"] == "en") {
@@ -34,6 +34,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/language.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167803260-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-167803260-1');
+	</script>
 
 
   </body>
