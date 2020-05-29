@@ -1,23 +1,23 @@
 <?php
 
-    /**
-     * Minimal class autoloader
-     *
-     * @param string $class Full qualified name of the class
-     */
-    function miniAutoloader($class)
-    {
-        $class = str_replace('\\', '/', $class);
-        require __DIR__ . '/includes/' . $class . '.php';
-    }
+/**
+ * Minimal class autoloader
+ *
+ * @param string $class Full qualified name of the class
+ */
+function miniAutoloader($class)
+{
+  $class = str_replace('\\', '/', $class);
+  require __DIR__ . '/includes/' . $class . '.php';
+}
 
-    // If the Composer autoloader exists, use it. If not, use our own as fallback.
-    $composerAutoloader = __DIR__.'/../vendor/autoload.php';
-    if (is_readable($composerAutoloader)) {
-        require $composerAutoloader;
-    } else {
-        spl_autoload_register('miniAutoloader');
-    }
+// If the Composer autoloader exists, use it. If not, use our own as fallback.
+$composerAutoloader = __DIR__ . '/../vendor/autoload.php';
+if (is_readable($composerAutoloader)) {
+  require $composerAutoloader;
+} else {
+  spl_autoload_register('miniAutoloader');
+}
 
 use Translate\Translator;
 use Translate\Exception;
@@ -137,48 +137,47 @@ use Translate\Exception;
 
     <?php
 
-  
-
 
     while ($a = $articles->fetch()) {
       echo '
       <div class="right">
       <br>
       <div class="box_right">
-        <div class="box_title black">'; echo $txt[12][$_SESSION["lang"]]; echo'</div>';
+        <div class="box_title black">';
+      echo $txt[12][$_SESSION["lang"]];
+      echo '</div>';
 
-    $string = strip_tags($a['contenu']);
-    if (strlen($string) > 500) {
+      $string = strip_tags($a['contenu']);
+      if (strlen($string) > 500) {
 
-    // truncate string
-    $stringCut = substr($string, 0, 500);
-    $endPoint = strrpos($stringCut, ' ');
-    $id = $a['id'];
+        // truncate string
+        $stringCut = substr($string, 0, 500);
+        $endPoint = strrpos($stringCut, ' ');
+        $id = $a['id'];
 
-    //if the string doesn't contain any space then it will cut without word basis.
-    $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-    $viewmore = $txt[13][$_SESSION["lang"]];
+        //if the string doesn't contain any space then it will cut without word basis.
+        $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+        $viewmore = $txt[13][$_SESSION["lang"]];
 
-    $lang = $_SESSION["lang"];
-    $titre = $a['titre'];
+        $lang = $_SESSION["lang"];
+        $titre = $a['titre'];
 
-    if ($lang != "fr"){ // si le site n'est pas en version française
-      try {
-                $key = KEY_TRANSLATION;
-                $translator = new Translator($key);
-                $texte = html_entity_decode($string);
-                $string = $translator->translate($texte, "fr-$lang");
-                $titre = $translator->translate($titre, "fr-$lang");
-              } catch (Exception $e) {
-                // handle exception
+        if ($lang != "fr") { // si le site n'est pas en version française
+          try {
+            $key = KEY_TRANSLATION;
+            $translator = new Translator($key);
+            $texte = html_entity_decode($string);
+            $string = $translator->translate($texte, "fr-$lang");
+            $titre = $translator->translate($titre, "fr-$lang");
+          } catch (Exception $e) {
+            // handle exception
+          }
+        }
+
+        $string .= "... <a href=\"voir_article.php?id=$id\">$viewmore</a>";
       }
-    }
-
-    $string .= "... <a href=\"voir_article.php?id=$id\">$viewmore</a>";
-
-    }
-      echo "<br><center><b><a href=\"voir_article.php?id=$id\">".$titre.'</a></b></center><hr>';
-      echo '<p>'.$string.'</p></div></div>';
+      echo "<br><center><b><a href=\"voir_article.php?id=$id\">" . $titre . '</a></b></center><hr>';
+      echo '<p>' . $string . '</p></div></div>';
     }
 
     ?>
@@ -195,37 +194,37 @@ use Translate\Exception;
 
     <div class="right">
       <br>
-            <div class="box_right">
-        <div class="box_title black"><?php 
-        if ($_SESSION["lang"] == "fr"){
-          echo "Une image de notre galerie";
-         } else if ($_SESSION["lang"] == "en"){
-          echo "An image from our gallery";
-         } else if ($_SESSION["lang"] == "es"){
-          echo "Una imagen de nuestra galería";
-         }
-         ?></div>
-      
+      <div class="box_right">
+        <div class="box_title black"><?php
+                                      if ($_SESSION["lang"] == "fr") {
+                                        echo "Une image de notre galerie";
+                                      } else if ($_SESSION["lang"] == "en") {
+                                        echo "An image from our gallery";
+                                      } else if ($_SESSION["lang"] == "es") {
+                                        echo "Una imagen de nuestra galería";
+                                      }
+                                      ?></div>
+
 
         <center>
-          <iframe src="includes/iframe_galerie.php" scrolling="no" frameborder="0" ></iframe>
+          <iframe src="includes/iframe_galerie.php" scrolling="no" frameborder="0"></iframe>
           <hr>
           <a href="galerie.php">
-          <?php 
-          if ($_SESSION["lang"] == "fr"){
-            echo "Voir notre galerie";
-           } else if ($_SESSION["lang"] == "en"){
-            echo "See our gallery";
-           } else if ($_SESSION["lang"] == "es"){
-            echo "Vea nuestra galería";
-           }
-           ?></a>
+            <?php
+            if ($_SESSION["lang"] == "fr") {
+              echo "Voir notre galerie";
+            } else if ($_SESSION["lang"] == "en") {
+              echo "See our gallery";
+            } else if ($_SESSION["lang"] == "es") {
+              echo "Vea nuestra galería";
+            }
+            ?></a>
         </center>
       </div>
 
     </div>
 
-  
+
 
 
 
