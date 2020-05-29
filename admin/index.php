@@ -23,7 +23,7 @@
 	    header("location:login.php"); // redirection
 	  } 
 
-  $query = "SELECT page,compteur FROM stats"; // select column
+  $query = "SELECT page,compteur FROM stats WHERE page!=\"record\""; // select column
   $aresult = $db->query($query);
 
 	?>
@@ -83,6 +83,18 @@
     echo $count;echo' visites';
     ?>
 
+<br>
+  <u>Record de visiteurs sur un jour :</u> 
+  <?php 
+
+    $visiteurs = $db->query("SELECT * FROM stats WHERE page=\"record\";")->fetch();
+    
+    if ($count > $visiteurs["compteur"]){
+      $db->query("UPDATE stats SET compteur=$count WHERE page=\"record\";");
+    }
+
+    echo $visiteurs["compteur"];echo' visites';
+    ?>
 <br>
     <u>Nombre de consultations depuis la création du site :</u> 
     <?php 
