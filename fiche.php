@@ -53,13 +53,102 @@
         </div>
 
         <div class="right">
-            <div class="box_right">
-                <div class="box_title black"><?php echo 'Auké'; ?></div>
+        <div class="box_right">
+        <div class="box_title black">
+        <?php
+        if ($_SESSION["lang"] == "fr") {
+          echo "Météo";
+        } else if ($_SESSION["lang"] == "en") {
+          echo "Weather";
+        } else if ($_SESSION["lang"] == "es") {
+          echo "El tiempo";
+        }
+        ?></div>
 
-                <center>
+        <center>
+          <h3><?php
+              if ($_SESSION["lang"] == "fr") {
+                echo "Météo actuelle pour la ville de :<br>";
+              } else if ($_SESSION["lang"] == "en") {
+                echo "Actual weather for the city of :<br>";
+              } else if ($_SESSION["lang"] == "es") {
+                echo "El tiempo real para la ciudad de : <br>";
+              }
+              ?><u>Toulouse</u></h3>
+          <ul style="list-style: none;margin-block-start: 0;padding-inline-start: 0;">
+            <li><?php include("includes/meteo.php"); ?></li>
+          </ul>
+        </center>
+      </div>
 
-                </center>
-            </div>
+      <br>
+
+      <div class="box_right">
+      <div class="box_title black">
+        <?php
+        if ($_SESSION["lang"] == "fr") {
+          echo "Votre avis nous intéresse";
+        } else if ($_SESSION["lang"] == "en") {
+          echo "Your opinion matters to us";
+        } else if ($_SESSION["lang"] == "es") {
+          echo "Su opinión nos importa";
+        }
+        ?></div>
+
+        <center>
+          <p>
+          <?php
+        if ($_SESSION["lang"] == "fr") {
+          echo "Aidez-nous à améliorer votre expérience en remplissant un petit formulaire.";
+        } else if ($_SESSION["lang"] == "en") {
+          echo "Help us improve your experience by filling out a short form.";
+        } else if ($_SESSION["lang"] == "es") {
+          echo "Ayúdenos a mejorar su experiencia rellenando un breve formulario.";
+        }
+        ?>
+          </p>
+          <div class="button-survey"><a href="survey.php" style="text-decoration: none;color:inherit;">
+          <?php
+        if ($_SESSION["lang"] == "fr") {
+          echo "Formulaire";
+        } else if ($_SESSION["lang"] == "en") {
+          echo "Form";
+        } else if ($_SESSION["lang"] == "es") {
+          echo "Formulario";
+        }
+        ?>
+          </a></div>
+        </center>
+      </div>
+
+      <br>
+
+      <div class="box_right">
+        <div class="box_title black"><?php
+                                      if ($_SESSION["lang"] == "fr") {
+                                        echo "Une image de notre galerie";
+                                      } else if ($_SESSION["lang"] == "en") {
+                                        echo "An image from our gallery";
+                                      } else if ($_SESSION["lang"] == "es") {
+                                        echo "Una imagen de nuestra galería";
+                                      }
+                                      ?></div>
+
+        <center>
+          <iframe src="includes/iframe_galerie.php" scrolling="no" frameborder="0"></iframe>
+          <hr>
+          <a href="galerie.php">
+            <?php
+            if ($_SESSION["lang"] == "fr") {
+              echo "Voir notre galerie";
+            } else if ($_SESSION["lang"] == "en") {
+              echo "See our gallery";
+            } else if ($_SESSION["lang"] == "es") {
+              echo "Vea nuestra galería";
+            }
+            ?></a>
+        </center>
+      </div>
         </div>
 
 
