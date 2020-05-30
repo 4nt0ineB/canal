@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/language.css">
   <link rel="stylesheet" href="../css/slideshow.css">
-  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>
 </head>
 
 <body>
@@ -50,9 +50,15 @@
   <?php
   if(isset($_REQUEST['send'])) // si le formulaire est envoyé avec le bouton send
   {
-    $titre = strip_tags($_REQUEST["title"]);
+    $titre = str_replace('"','\"',$_REQUEST["title"]);
     $contenu = str_replace('"','\"',$_REQUEST["content"]);
-    $categorie = $_REQUEST["categorie"];
+
+    if (isset($_REQUEST["categorie"])){
+      $categorie = $_REQUEST["categorie"];
+    } else {
+      $categorie = $article_results["categorie"];
+    }
+    
      try
      {
       if (empty($titre) || strlen($titre) < 3){ // si le titre est vide ou inférieur a 3 caractères
@@ -102,11 +108,11 @@
             <p>
         <label><u>Auteur :</u></label><input type="text" name="author" value="<?php echo $article_results["auteur"]; ?>" readonly="readonly"><br>
         <label><u>Date :</u></label><input type="text" name="date" value="<?php echo $article_results["date"]; ?>" readonly="readonly"><br>
-        <label><u>Titre :</u></label><input type="text" name="title" value="<?php echo $article_results["titre"]; ?>"><br>
+        <label><u>Titre :</u></label><input type="text" name="title" value="<?php echo htmlspecialchars($article_results["titre"],ENT_QUOTES); ?>"><br>
         <label><u>Catégorie de l'article :</u></label>
 
         <select name="categorie">
-            <option selected disabled><?php echo $article_results["categorie"]; ?></option>
+            <option value="<?php echo $article_results["categorie"]; ?>" selected disabled><?php echo $article_results["categorie"]; ?></option>
 
              <?php while ($results = $categories->fetch()) : ?>
             <option value="<?php echo $results["fr"]; ?>"><?php echo $results["fr"]; ?></option>
@@ -118,7 +124,24 @@
 
         <textarea name="content"><?php echo $article_results["contenu"]; ?></textarea>
         <script>
-          CKEDITOR.replace( 'content' );
+          CKEDITOR.replace('content', {
+      extraPlugins: 'embed,autoembed,image2',
+      height: 500,
+
+      // Load the default contents.css file plus customizations for this sample.
+      contentsCss: [
+        'http://cdn.ckeditor.com/4.14.0/full-all/contents.css',
+        'https://ckeditor.com/docs/vendors/4.14.0/ckeditor/assets/css/widgetstyles.css'
+      ],
+      // Setup content provider. See https://ckeditor.com/docs/ckeditor4/latest/features/media_embed
+      embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
+
+      // Configure the Enhanced Image plugin to use classes instead of styles and to disable the
+      // resizer (because image size is controlled by widget styles or the image takes maximum
+      // 100% of the editor width).
+      image2_alignClasses: ['image-align-left', 'image-align-center', 'image-align-right'],
+      image2_disableResizer: true
+    });
        </script>
 
         <br>

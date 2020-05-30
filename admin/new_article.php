@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/language.css">
   <link rel="stylesheet" href="../css/slideshow.css">
-  <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/4.14.0/standard-all/ckeditor.js"></script>
 </head>
 
 <body>
@@ -48,7 +48,7 @@
 
       else if(!isset($errorRequestMessage)) // si aucune erreur :
       {
-       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW(), :categorie);");   // on créer la demande dans la BDD
+       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW(), :categorie;");   // on créer la demande dans la BDD
 
        if($insert_request->execute(array(':titre'=>$titre, ':auteur'=>$auteur, ':contenu'=>$contenu, ':categorie'=>$categorie))){
 
@@ -113,7 +113,24 @@
 
         <textarea name="content"></textarea>
         <script>
-          CKEDITOR.replace( 'content' );
+          CKEDITOR.replace('content', {
+      extraPlugins: 'embed,autoembed,image2',
+      height: 500,
+
+      // Load the default contents.css file plus customizations for this sample.
+      contentsCss: [
+        'http://cdn.ckeditor.com/4.14.0/full-all/contents.css',
+        'https://ckeditor.com/docs/vendors/4.14.0/ckeditor/assets/css/widgetstyles.css'
+      ],
+      // Setup content provider. See https://ckeditor.com/docs/ckeditor4/latest/features/media_embed
+      embed_provider: '//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
+
+      // Configure the Enhanced Image plugin to use classes instead of styles and to disable the
+      // resizer (because image size is controlled by widget styles or the image takes maximum
+      // 100% of the editor width).
+      image2_alignClasses: ['image-align-left', 'image-align-center', 'image-align-right'],
+      image2_disableResizer: true
+    });
        </script>
 
         <br>
