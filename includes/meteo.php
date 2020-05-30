@@ -11,7 +11,7 @@ use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 // If you installed the recommended PSR-17/18 implementations, here's how to create the
 // necessary `$httpClient` and `$httpRequestFactory`:
 $httpRequestFactory = new RequestFactory();
-$httpClient = GuzzleAdapter::createWithConfig([]);
+$httpClient = GuzzleAdapter::createWithConfig(['verify' => false ]);
 
 $owm = new OpenWeatherMap('cf37dff364ea7c63c20d6e3a35c92e0b', $httpClient, $httpRequestFactory);
 
