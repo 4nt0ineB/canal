@@ -283,6 +283,7 @@ hr {
   text-align: justify;
   font-family: "Dyno";
   padding-right: 5px;
+  overflow: hidden;
 }
 
 .box_left h2 {

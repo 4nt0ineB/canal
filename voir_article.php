@@ -195,7 +195,7 @@ use Translate\Exception;
             try {
               $translator = new Translator($key);
 
-              $contenu = html_entity_decode(strip_tags($article["contenu"], '<p><strong><hr><h2><h1><b><u><i><img><div><iframe><center>'), ENT_QUOTES, 'UTF-8');
+              $contenu = html_entity_decode(strip_tags($article["contenu"], '<p><strong><hr><h2><h1><b><u><i><img><div><iframe><center><figure><figcaption>'), ENT_QUOTES, 'UTF-8');
               $translation = $translator->translate($contenu, "fr-$lang");
 
             } catch (Exception $e) {
