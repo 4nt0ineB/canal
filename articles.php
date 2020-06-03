@@ -49,7 +49,7 @@ use Translate\Exception;
     $count = $query_count["compteur"];
     $db->query("UPDATE stats SET compteur=$count+1 WHERE page=\"articles\";");
 
-    $article = $db->query("SELECT * FROM articles");
+    $article = $db->query("SELECT * FROM articles ORDER BY date DESC");
 
     /* stats affichées */
     $stats_vues = $db->query("SELECT compteur FROM stats WHERE page=\"voir_article\";")->fetch();
@@ -67,6 +67,12 @@ use Translate\Exception;
 
             <?php
             $lang = $_SESSION["lang"];
+
+            $id = $results["id"];
+            $categorie = $db->query("SELECT categorie FROM articles WHERE id=$id;")->fetch();
+            $result_categ = $categorie["categorie"];
+            $categorie_label = $db->query("SELECT $lang FROM articles_categories WHERE fr=\"$result_categ\";")->fetch();
+
             if ($lang != "fr"){ // si le site n'est pas en version française
               try {
                         $key = KEY_TRANSLATION;
@@ -84,7 +90,7 @@ use Translate\Exception;
 
 
             <h1><?php echo $titre; ?></h1><br>
-            <span><?php echo $txt[4][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($results["date"]); ?></b></span>
+            <span><?php echo $txt[4][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($results["date"]); ?></b> <?php echo $txt[16][$_SESSION["lang"]]; ?> <b><?php echo $categorie_label["$lang"]; ?></b></span>
           </div>
 
           <div class="right">
