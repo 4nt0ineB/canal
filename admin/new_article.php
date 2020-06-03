@@ -48,7 +48,7 @@
 
       else if(!isset($errorRequestMessage)) // si aucune erreur :
       {
-       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW(), :categorie;");   // on créer la demande dans la BDD
+       $insert_request=$db->prepare("INSERT INTO articles VALUES (NULL, :titre, :auteur, :contenu, NOW(), :categorie);");   // on créer la demande dans la BDD
 
        if($insert_request->execute(array(':titre'=>$titre, ':auteur'=>$auteur, ':contenu'=>$contenu, ':categorie'=>$categorie))){
 
