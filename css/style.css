@@ -283,6 +283,9 @@ hr {
   text-align: justify;
   font-family: "Dyno";
   padding-right: 5px;
+}
+
+figure {
   overflow: hidden;
 }
 
