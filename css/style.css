@@ -289,6 +289,16 @@ figure {
   overflow: hidden;
 }
 
+figcaption {
+  background-color: rgba(0, 0, 0, 0.12);
+  padding: 5px;
+  margin-top: -3px;
+  font-family: "Dyno";
+  text-align: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 .box_left h2 {
   font-family: "Dyno";
   font-size: 20px;
