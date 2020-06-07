@@ -22,7 +22,7 @@
       header("location:login.php"); // redirection
     }
 
-    $visiteur = $db->query("SELECT * FROM visiteurs");
+    $visiteur = $db->query("SELECT * FROM visiteurs ORDER BY lastLogin DESC LIMIT 40");
 
     ?>
 
@@ -49,7 +49,7 @@
 
     <div class="left">
       <div class="box_left">
-        <div class="box_title">Visiteurs du site</div>
+        <div class="box_title">Derniers visiteurs récents du site</div>
 
 
         <table class="demo">
@@ -74,7 +74,7 @@
           <td><b><?php echo htmlspecialchars($results["ip"]);echo'</b>'; 
 
           if ($data->status == "success"){
-            echo ' ('; echo $data->country; echo' - '; echo $data->city; echo' / '; echo $data->isp; echo')'; 
+            echo ' ('; echo $data->country; echo' - '; echo $data->city; echo' / <b>'; echo $data->isp; echo'</b>)'; 
           }
 
           ?></td>
