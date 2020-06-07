@@ -2,7 +2,15 @@
 <a href="https://www.univ-gustave-eiffel.fr/" target="_blank"><img src="img/logo_univ_gustave_eiffel_blanc_rvb.png" alt="Logo Université Gustave Eiffel"></a>
 <img src="img/mcn.png" alt="Logo MCN">
 <a href="https://whc.unesco.org/fr/list/" target="_blank"><img src="img/unesco.png" alt="Logo UNESCO"></a>
-<a href="https://fr.unesco.org/forum" target="_blank"><img src="img/forumunesco.png" alt="Logo FORUM UNESCO"></a>
+<?php
+         if ($_SESSION["lang"] == "en") {
+            echo "<a href=\"./files/Presentation__Forum_UNESCO__anglais.pdf\" target=\"_blank\"><img src=\"img/forumunesco.png\" alt=\"Logo FORUM UNESCO\"></a>";
+        } elseif ($_SESSION["lang"] == "fr") {
+            echo "<a href=\"./files/Presentation_Forum_UNESCO___francais.pdf\" target=\"_blank\"><img src=\"img/forumunesco.png\" alt=\"Logo FORUM UNESCO\"></a>";
+        } elseif ($_SESSION["lang"] == "es") {
+            echo "<a href=\"./files/Presentation__Forum_UNESCO__anglais.pdf\" target=\"_blank\"><img src=\"img/forumunesco.png\" alt=\"Logo FORUM UNESCO\"></a>";
+        }
+  ?>
 <a href="https://anr.fr/" target="_blank"><img src="img/anr.png"></a>
 <a href="https://www.icomos.org/" target="_blank"><img src="img/icomos.png"></a>
 <div class="legals">
