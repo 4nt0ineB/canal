@@ -65,19 +65,29 @@
                     <div id="lovely-things-list">
                         <input type="text" class="search" placeholder="Search">
                         <ul class="sort-by">
-                            <li class="sort btn" data-sort="name" style="border-radius: 10px;"><?php if ($_SESSION['lang'] == "en") {
-                                                                                                    echo 'Sort by name';
-                                                                                                } elseif ($_SESSION['lang'] == "fr") {
-                                                                                                    echo 'Trier par nom';
-                                                                                                } ?></li>
-                            <li class="sort btn" data-sort="category">Sort by category</li>
+                            <li class="sort btn" data-sort="name" style="border-radius: 10px;">
+                                <?php if ($_SESSION['lang'] == "en") {
+                                    echo 'Sort by name';
+                                } elseif ($_SESSION['lang'] == "fr") {
+                                    echo 'Trier par nom';
+                                } ?>
+                            </li>
+
+                            <li class="sort btn" data-sort="category">
+                                <?php if ($_SESSION['lang'] == "en") {
+                                    echo 'Sort by category';
+                                } elseif ($_SESSION['lang'] == "fr") {
+                                    echo 'Trier par catégorie';
+                                } ?>
+                            </li>
                         </ul>
                         <ul class="filter">
-                            <li class="btn" id="filter-none"><?php if ($_SESSION['lang'] == "en") {
-                                                                    echo 'Show all';
-                                                                } elseif ($_SESSION['lang'] == "fr") {
-                                                                    echo 'Tout';
-                                                                } ?>
+                            <li class="btn" id="filter-none">
+                                <?php if ($_SESSION['lang'] == "en") {
+                                    echo 'Show all';
+                                } elseif ($_SESSION['lang'] == "fr") {
+                                    echo 'Tout';
+                                } ?>
                             </li>
 
                             <?php
