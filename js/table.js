@@ -4,6 +4,11 @@ var options = {
 
 var featureList = new List("lovely-things-list", options);
 
+$("#filter-none").click(function () {
+  featureList.filter();
+  return false;
+});
+
 $("#filter-velo").click(function () {
   featureList.filter(function (item) {
     if (item.values().category == "velo") {
@@ -15,7 +20,7 @@ $("#filter-velo").click(function () {
   return false;
 });
 
-$("#filter-chambres d'hôtes").click(function () {
+$("#filter-chambresD").click(function () {
   featureList.filter(function (item) {
     if (item.values().category == "chambres d'hôtes") {
       return true;
@@ -25,6 +30,7 @@ $("#filter-chambres d'hôtes").click(function () {
   });
   return false;
 });
+
 
 $("#filter-gite").click(function () {
   featureList.filter(function (item) {
@@ -67,10 +73,5 @@ $("#filter-bateau").click(function () {
       return false;
     }
   });
-  return false;
-});
-
-$("#filter-none").click(function () {
-  featureList.filter();
   return false;
 });

@@ -70,7 +70,7 @@
                                                                                                 } elseif ($_SESSION['lang'] == "fr") {
                                                                                                     echo 'Trier par nom';
                                                                                                 } ?></li>
-                            <!-- <li class="sort btn" data-sort="category">Sort by category</li>-->
+                            <li class="sort btn" data-sort="category">Sort by category</li>
                         </ul>
                         <ul class="filter">
                             <li class="btn" id="filter-none"><?php if ($_SESSION['lang'] == "en") {
@@ -82,7 +82,13 @@
 
                             <?php
                             while ($t = $tradTag->fetch()) {
-                                echo '<li class="btn" id="filter-' . $t['fr'] . '">' . $t[$_SESSION['lang']] . '</li>';
+                                echo '<li class="btn" id="filter-';
+                                if ($t['fr'] == "chambres d'hôtes") {
+                                    echo 'chambresD';
+                                } else {
+                                    echo $t['fr'];
+                                }
+                                echo '">' . $t[$_SESSION['lang']] . '</li>';
                             }
 
                             ?>
@@ -90,12 +96,13 @@
                         </ul>
                         <ul class="list">
                             <?php while ($f = $qFiche->fetch()) {
-                                //on utilisera le <a></a> pour faire passer en post l'id de la fiche de laquelle on souhaite voir sa description
+                                //on utilisera le <a></a> pour faire passer en post l'id de la fiche de laquelle on souhaite voir sa description via GET
                                 echo '<li>
-                                    <img src="' . $f['miniature'] . '"class="thumb">
-                                    <a href="fiche.php?id=' . $f['id'] . '"><h4><span  class="name">' . $f['titre'] . '</span> <span class="category">' . $f["tag2"] . '</span></h4></a>
-
+                                    <span class="category">' . $f["tag2"] . '</span>
+                                    <img src="' . $f['miniature'] . '" class="thumb">
+                                    <a href="fiche.php?id=' . $f['id'] . '"><h4><span  class="name">' . $f['titre'] . '</span> </h4></a>
                                     <p class="description">' . $f["adresse"] . '<br>' . $f["code_postal"] . ' ' . $f["localite"] . '</p>
+                                    
                                     </li>';
                             }
 
