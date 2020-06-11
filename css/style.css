@@ -739,3 +739,12 @@ select {
   font-size: 15px;
   border: 1px solid #b5bac3;
 }
+
+.socialmedia {
+  color: #353535 !important;
+}
+
+.socialmedia:hover{
+  transition: 0.4s ease-in-out all;
+  color: #b84f15 !important;
+}

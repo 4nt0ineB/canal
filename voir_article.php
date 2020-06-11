@@ -35,6 +35,7 @@ use Translate\Exception;
   <link rel="stylesheet" href="css/language.css">
   <link rel="stylesheet" href="css/slideshow.css">
   <script src='https://www.google.com/recaptcha/api.js'></script> 
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
 </head>
 
 <body>
@@ -354,8 +355,27 @@ use Translate\Exception;
             ?></a>
         </center>
       </div>
-    </div>
 
+          <br>
+
+    <div class="box_right">
+        <div class="box_title black"><?php
+                                      if ($_SESSION["lang"] == "fr") {
+                                        echo "Nos réseaux sociaux";
+                                      } else if ($_SESSION["lang"] == "en") {
+                                        echo "Our social medias";
+                                      } else if ($_SESSION["lang"] == "es") {
+                                        echo "Nuestras redes sociales";
+                                      }
+                                      ?></div>
+
+        <center style="margin-top:5px;">
+        <a href="https://www.facebook.com/Canal-du-Midi-M%C3%A9diation-Culturelle-et-Num%C3%A9rique-106766767743771" target="_blank" class="socialmedia"><i class="devicon-facebook-plain" style="font-size:34px;"></i></a>
+        <a href="https://twitter.com/DuCulturelle" target="_blank" class="socialmedia"><i class="devicon-twitter-plain" style="font-size:30px;"></i></a>
+        </center>
+      </div>
+    </div>
+    
 
     <div class="clear"></div>
 
