@@ -62,6 +62,8 @@
                   echo "Want to know more?";
                 } elseif ($_SESSION["lang"] == "fr") {
                   echo "Vous voulez en savoir plus ?";
+                } elseif ($_SESSION["lang"] == "es") {
+                  echo "¿Quieres saber más?";
                 }
                 ?>
               </div>
@@ -73,6 +75,9 @@
                 } elseif ($_SESSION["lang"] == "fr") {
                   echo "<a href=\"https://fr.wikipedia.org/wiki/Canal_du_Midi\" target=\"_blank\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/220px-Wikipedia-logo-v2.svg.png\" style=\"width:90px;\"></a><br>
               Plus de détails sur la page Wikipédia classée <b>\"article de qualité\"</b> !";
+                } elseif ($_SESSION["lang"] == "es") {
+                  echo "<a href=\"https://fr.wikipedia.org/wiki/Canal_du_Midi\" target=\"_blank\"><img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/220px-Wikipedia-logo-v2.svg.png\" style=\"width:90px;\"></a><br>
+              Más detalles en la página de Wikipedia clasificada como un  <b>\"artículo de calidad\"</b> !";
                 }
                 ?>
               </center>
