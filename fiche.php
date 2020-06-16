@@ -1,3 +1,28 @@
+<?php
+
+    /**
+     * Minimal class autoloader
+     *
+     * @param string $class Full qualified name of the class
+     */
+    function miniAutoloader($class)
+    {
+        $class = str_replace('\\', '/', $class);
+        require __DIR__ . '/includes/' . $class . '.php';
+    }
+
+    // If the Composer autoloader exists, use it. If not, use our own as fallback.
+    $composerAutoloader = __DIR__.'/../vendor/autoload.php';
+    if (is_readable($composerAutoloader)) {
+        require $composerAutoloader;
+    } else {
+        spl_autoload_register('miniAutoloader');
+    }
+
+use Translate\Translator;
+use Translate\Exception;
+
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -46,7 +71,24 @@
                 <br>
                 <?php echo '<img src="' . $fiche['miniature'] . '" style="width: 250px;">'; ?>
                 <hr>
-                <p><?php echo $fiche['description']; ?></p>
+                <p>
+                <?php
+                  $lang = $_SESSION["lang"];
+                  $description = $fiche['description'];
+                    if ($lang != "fr"){ // si le site n'est pas en version française
+                      try {
+                                $key = KEY_TRANSLATION;
+                                $translator = new Translator($key);
+                                $description = html_entity_decode(strip_tags($fiche['description'], '<p><strong><hr><h2><h1><b><u><i><img><div><iframe><center><figure><figcaption>'), ENT_QUOTES, 'UTF-8');
+                                $description = $translator->translate($description, "fr-$lang");
+                              } catch (Exception $e) {
+                                // handle exception
+                      }
+                    } else {
+                      $description = $fiche['description'];
+                    }
+                ?>
+                <?php echo $description; ?></p>
 
             </div>
             <div style="clear:both;"></div>

@@ -6,6 +6,8 @@ function edit_date_format($datetime){ // fonction pour eviter répétition du co
   $lastmodified = "$day/$month/$year $time";
   $months = array("January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December");
+  $meses = array("enero", "febrero", "marzo", "abril", "mayo", "junio",
+      "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
   $mois = array("janvier", "février", "mars", "avril", "mai", "juin",
       "juillet", "août", "septembre", "octobre", "novembre", "décembre");
 
@@ -13,6 +15,8 @@ function edit_date_format($datetime){ // fonction pour eviter répétition du co
   	$lastmodified = "on ".$months[$month-1]." $day $year at ${hour}h${min}m${sec}s";
   } else if ($_SESSION["lang"] == "fr"){
   	$lastmodified = "le $day ".$mois[$month-1]." $year à ${hour}h${min}m${sec}s";
+  } else if ($_SESSION["lang"] == "es"){
+  	$lastmodified = "el $day de ".$meses[$month-1]." $year a las ${hour}h${min}m${sec}s";
   }
 
   echo $lastmodified;

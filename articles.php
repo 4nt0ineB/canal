@@ -109,11 +109,11 @@ use Translate\Exception;
         <div class="box_title black"><?php echo $txt[15][$_SESSION["lang"]]; ?></div>
         <br>
         <center>
-          <u><b>Nombre total de lectures :</b></u> <?php echo $stats_vues["compteur"]; ?>
+          <u><b><?php echo $txt[17][$_SESSION["lang"]]; ?></b></u> <?php echo $stats_vues["compteur"]; ?>
           <hr>
-          <u><b>Nombre total d'articles :</b></u> <?php echo $stats_articles; ?>
+          <u><b><?php echo $txt[18][$_SESSION["lang"]]; ?></b></u> <?php echo $stats_articles; ?>
           <hr>
-          <u><b>Nombre total de commentaires :</b></u> <?php echo $stats_commentaires; ?>
+          <u><b><?php echo $txt[19][$_SESSION["lang"]]; ?></b></u> <?php echo $stats_commentaires; ?>
         </center>
       </div>
 

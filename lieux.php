@@ -69,7 +69,9 @@
                                     echo 'Sort by name';
                                 } elseif ($_SESSION['lang'] == "fr") {
                                     echo 'Trier par nom';
-                                } ?>
+                                } elseif ($_SESSION['lang'] == "es") {
+                                    echo 'Ordenar por nombre';
+                                }?>
                             </li>
 
                             <li class="sort btn" data-sort="category">
@@ -77,7 +79,9 @@
                                     echo 'Sort by category';
                                 } elseif ($_SESSION['lang'] == "fr") {
                                     echo 'Trier par catégorie';
-                                } ?>
+                                } elseif ($_SESSION['lang'] == "es") {
+                                    echo 'Ordenar por categoría';
+                                }?>
                             </li>
                         </ul>
                         <ul class="filter">
@@ -85,7 +89,9 @@
                                 <?php if ($_SESSION['lang'] == "en") {
                                     echo 'Show all';
                                 } elseif ($_SESSION['lang'] == "fr") {
-                                    echo 'Tout';
+                                    echo 'Montrer tout';
+                                } elseif ($_SESSION['lang'] == "es") {
+                                    echo 'Mostrar todo';
                                 } ?>
                             </li>
 
