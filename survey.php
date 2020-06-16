@@ -37,7 +37,7 @@
 
         <div class="right">
             <div class="box_right">
-                
+            <div class="box_title black"><?php echo $txt[1][$_SESSION["lang"]]; ?></div>
                 <center>
                     <h3><?php echo $txt[2][$_SESSION["lang"]]; ?><u>Toulouse</u></h3>
                     <ul style="list-style: none;margin-block-start: 0;padding-inline-start: 0;">

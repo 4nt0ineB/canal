@@ -1,3 +1,28 @@
+<?php
+
+    /**
+     * Minimal class autoloader
+     *
+     * @param string $class Full qualified name of the class
+     */
+    function miniAutoloader($class)
+    {
+        $class = str_replace('\\', '/', $class);
+        require __DIR__ . '/includes/' . $class . '.php';
+    }
+
+    // If the Composer autoloader exists, use it. If not, use our own as fallback.
+    $composerAutoloader = __DIR__.'/../vendor/autoload.php';
+    if (is_readable($composerAutoloader)) {
+        require $composerAutoloader;
+    } else {
+        spl_autoload_register('miniAutoloader');
+    }
+
+use Translate\Translator;
+use Translate\Exception;
+
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -70,7 +95,23 @@
         while ($resultats = $recherche->fetch()){ ?>
           <div class="article_summup">
           <div class="left">
-            <h1><?php echo $resultats["titre"]; ?></h1><br>
+          <?php
+          $lang = $_SESSION["lang"];
+          $titre = $resultats["titre"];
+            if ($lang != "fr"){ // si le site n'est pas en version française
+              try {
+                        $key = KEY_TRANSLATION;
+                        $translator = new Translator($key);
+                        $titre = html_entity_decode($resultats["titre"]);
+                        $titre = $translator->translate($titre, "fr-$lang");
+                      } catch (Exception $e) {
+                        // handle exception
+              }
+            } else {
+              $titre = $resultats["titre"];
+            }
+          ?>
+            <h1><?php echo $titre; ?></h1><br>
             <span><?php echo $txt[7][$_SESSION["lang"]]; ?> <b><?php echo edit_date_format($resultats["date"]); ?></b></span>
           </div>
 
@@ -84,17 +125,18 @@
 
       </div>
     </div>
+
     <div class="right">
-      <div class="box_right">
-
-
-        <div class="box_title black">categ</div>
-
-        <center>
-          test
-        </center>
-      </div>
-    </div>
+            <div class="box_right">
+            <div class="box_title black"><?php echo $txt[8][$_SESSION["lang"]]; ?></div>
+                <center>
+                    <h3><?php echo $txt[9][$_SESSION["lang"]]; ?><u>Toulouse</u></h3>
+                    <ul style="list-style: none;margin-block-start: 0;padding-inline-start: 0;">
+                        <li><?php include("includes/meteo.php"); ?></li>
+                    </ul>
+                </center>
+            </div>
+        </div>
 
 
     <div class="clear"></div>
