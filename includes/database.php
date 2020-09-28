@@ -1,8 +1,8 @@
 <?php
-define('HOST', '51.210.15.73');
-define('DB_NAME', 'canal');
-define('USER', 'debian2');
-define('PASS', 'zibaldone52');
+define('HOST', '*******');
+define('DB_NAME', '*******');
+define('USER', '*******');
+define('PASS', '*******');
 
 define('CAPTCHA_KEY',"6Lcvb_cUAAAAACt0_rt2evFprt8vnZNBscLnQXWX"); 
 define('CAPTCHA_SECRET_KEY',"6Lcvb_cUAAAAAM-JVO2wuSokTHB_0IciuNWU6dWa");
